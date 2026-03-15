@@ -1,0 +1,93 @@
+.sidebar {
+    width: 260px;
+    background-color: rgb(255, 255, 255);
+    height: 100%;
+    display: flex;
+    flex-direction:column;
+    padding: 1.5rem 1rem;
+    box-shadow: 2px 0 8px rgba(0, 0, 0, 0.05);
+    border-radius: 16px;
+    overflow-y: auto;
+}
+
+.logoContainer {
+    display: flex;
+    align-items: center;
+    gap:0.75rem;
+    margin-bottom: 2rem;
+    padding: 0 0.5rem;
+}
+
+.logoText {
+font-weight: bold;
+font-size: 20px;
+color: rgb(45, 45, 45);
+}
+
+.nav {
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+    flex: 1; 
+    padding-bottom: 20px;
+}
+
+
+.link {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1rem;
+    border-radius: 12px;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 600;
+    transition: background 0.2s;
+    color: #4c4c4c;
+}
+
+.link:hover {
+    background-color: #f4f4f4;
+    color: #4c4c4c;
+}
+
+.link.active {
+ background-color: #fce4f3;
+  color: #c2558b;
+  font-weight: 700;
+}
+
+.user {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    border-top: 1px solid #f0e6f0;
+    padding-top: 1rem;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+
+  display: flex;
+  align-items: center;
+}
+
+.userName {
+    color: #4c4c4c;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.userEmail {
+    color: #6d6d6d;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+
+.user button {
+    background-color: transparent;
+    color: #eb7fa4;
+    cursor: pointer;
+}
