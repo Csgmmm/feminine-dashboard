@@ -1,0 +1,46 @@
+button {
+  font-family:
+    ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+    "Segoe UI Symbol", "Noto Color Emoji";
+  display: flex;
+  align-items: center;
+  border-radius: 8px;
+  text-decoration: none;
+  padding: 0.5rem;
+  gap: 10px;
+  border: 0px;
+}
+
+.primary {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 12px 16px;
+  background-color: transparent;
+  border-radius: 16px;
+  color: #696969;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.primary.active {
+  background-color: #fdf1f6 !important;
+  color: #eb7fa4 !important;
+  font-weight: bold;
+  cursor: default;
+}
+
+.primary:hover {
+  background-color: #f3f3f3;
+  color: black;
+  transition:
+    background-color 0.2s ease,
+    transform 0.2s ease;
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+}
+
+
