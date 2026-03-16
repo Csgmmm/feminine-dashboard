@@ -1,13 +1,15 @@
 import { Link } from "react-router-dom";
-import style from "./sidebar.module.css";
+import styles from "./sidebar.module.css";
 import Homepage from "../homepage/Homepage";
+import Logo from "../logo/Logo";
 
 function Sidebar() {
   return (
     <>
-      <aside className={style.sidebar}>
-        <div className={style.logoContainer}>
-          <span className="logoText">MyCycle</span>
+      <aside className={styles.sidebar}>
+        <div className={styles.logoContainer}>
+          <Logo/>
+          <span className={styles.logoText}>MyCycle</span>
         </div>
 
         <nav className="nav">

@@ -1,10 +1,10 @@
 #sidebar {
   display: flex;
   height: 100vh;
-  background-color: #f0f0f0;
+  background-color: #f5f3f3;
   overflow: hidden;
   padding: 1.5rem;
-  gap: 1rem;        /* padding à volta de tudo, se fosse no app.css faria scroll */         /* espaço entre sidebar e main */
+  gap: 1rem;      
 }
 
 .main {
