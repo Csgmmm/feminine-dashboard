@@ -11,7 +11,11 @@ export const getLogs = async (userId: string): Promise<ILogs[]> => {
     console.error(error);
     return [];
   }
-  return data.map((row: { content: ILogs }) => row.content);
+  return data.map((row) => ({
+    ...row.content,
+    id: row.id,
+    date: row.date,
+  }));
 };
 
 export const createLog = async (userId: string, log: ILogs): Promise<void> => {
