@@ -19,7 +19,7 @@ const AuthContext = createContext<IAuthContextType>({
 }); //cirei uma variavel. Dentro, vai criar contexto que é do tipo da interface, com valores padrão: user a null e loading a true. Estes valores são usados caso não haja nenhum Provider acima na árvore
 
 export const AuthProvider = ({ children }: { children: ReactNode }) => {
-  //Esta variavel recebe um children que é do tipo reactNode.
+  //Esta variavel recebe um children que é do tipo reactNode. //Neste caso, o children é a App.tsx
   const [user, setUser] = useState<User | null>(null); //dentro da função, criei 2 gavetas para guardar a info. User: guarda o utilizador e o setUser e a forma como se usa a info que lá esta
   const [loading, setLoading] = useState(true); //Aqui, o loading guarda por uma resposta, começando com true.
 
@@ -30,7 +30,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
       setUser(data.session?.user ?? null); //Quero atualizar a gaveta user, e para isso uso a chave setUser. O valor que lhe dou vem de data.session?.user, ou seja, vou ao data, verifico se tem sessão, e se tiver, guardo o utilizador. Se não houver nada, guardo null.
       setLoading(false); //aqui, abro a gaveta do loading que advém true, e após ele fazer a ação anterior, já pode ficar false, para que não continue a esperar por uma resposta.
     });
-  }, []);
+  }, [AuthContext]);
 
   //Fui buscar o const criado com o context criado. Em que é ele que vai provide toda a info aos filhos.
   //No value, quero que todos os componentes dentro das tags, tenham os conteudos das gavetas user e loading.

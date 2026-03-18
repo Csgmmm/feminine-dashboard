@@ -1,21 +1,20 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import "./App.css";
-import Layout from "./layout/Layout"
-import Homepage from "./homepage/Homepage"
-
+import Homepage from "./homepage/Homepage";
+import Login from "./login/Login";
+import PrivateRoute from "./privateRoute/PrivateRoute";
 
 function App() {
   return (
-    <Layout>
+    <>
       <Routes>
-        <Route>
-          <Route path="/homepage" element={<Homepage />} />
-        </Route>
+        <Route path="/login" element={<Login/>}/>
+        <Route path="/homepage" element={<PrivateRoute><Homepage/></PrivateRoute>} />
+        <Route path="*" element={<Navigate to="/login"/>}/>
       </Routes>
-      <footer>Footer!</footer>
-    </Layout>
+
+    </>
   );
 }
-
 
 export default App;
