@@ -1,6 +1,8 @@
 import { useState } from "react";
 import supabase from "../api/supabaseClient";
 import { useNavigate } from "react-router-dom";
+import styles from "./login.module.css"
+import Logo from "../logo/Logo";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -19,12 +21,17 @@ const Login = () => {
     }
   };
   return (
-    <div>
+    <div className={styles.loginPage}>
+      <Logo/>
+      <div className={styles.containerInput}>
+        <h2>Welcome to MyCicle</h2>
+        <h3>This is your safe place</h3>
       <input
         type="email"
         placeholder="Insert your email"
         value={email}
         onChange={(e) => setEmail(e.target.value)} //cada vez que algo mudar no input, atualiza o estado com o novo valor
+        className={styles.inputEmail}
       />
       <input
         type="password"
@@ -34,7 +41,8 @@ const Login = () => {
       />
       {error && <p>{error}</p>}
       {/* "Se error tiver valor, mostra o <p> com a mensagem, senão não mostra nada." */}
-      <button onClick={handleLogin}>Log in</button>
+      <button className="primary" onClick={handleLogin}>Log in</button>
+    </div>
     </div>
   );
 };

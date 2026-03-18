@@ -22,8 +22,9 @@ const Layout = ({ children }: ILayout) => {
       <main className={styles.main}>
         <button onClick={handleLogout}>Logout</button>
         {children}
+        <footer>Footer!</footer>
       </main>
-      <footer>Footer!</footer>
+      
     </section>
   );
 };
