@@ -1,7 +1,7 @@
 import { useState } from "react";
 import supabase from "../api/supabaseClient";
 import { useNavigate } from "react-router-dom";
-import styles from "./login.module.css"
+import styles from "./login.module.css";
 import Logo from "../logo/Logo";
 
 const Login = () => {
@@ -22,27 +22,39 @@ const Login = () => {
   };
   return (
     <div className={styles.loginPage}>
-      <Logo/>
+      <Logo />
       <div className={styles.containerInput}>
         <h2>Welcome to MyCicle</h2>
         <h3>This is your safe place</h3>
-      <input
-        type="email"
-        placeholder="Insert your email"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)} //cada vez que algo mudar no input, atualiza o estado com o novo valor
-        className={styles.inputEmail}
-      />
-      <input
-        type="password"
-        placeholder="Insert your password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-      />
-      {error && <p>{error}</p>}
-      {/* "Se error tiver valor, mostra o <p> com a mensagem, senão não mostra nada." */}
-      <button className="primary" onClick={handleLogin}>Log in</button>
-    </div>
+        <input
+          type="email"
+          placeholder="Insert your email"
+          value={email}
+          onKeyDown={(e) => {
+            if (e.key === 'Enter') {
+              handleLogin();
+            }
+          }}
+          onChange={(e) => setEmail(e.target.value)} //cada vez que algo mudar no input, atualiza o estado com o novo valor
+          className={styles.inputEmail}
+        />
+        <input
+          type="password"
+          placeholder="Insert your password"
+          value={password}
+          onKeyDown={(e) => {
+            if (e.key === 'Enter') {
+              handleLogin();
+            }
+          }}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+        {error && <p>{error}</p>}
+        {/* "Se error tiver valor, mostra o <p> com a mensagem, senão não mostra nada." */}
+        <button className="primary" onClick={handleLogin}>
+          Log in
+        </button>
+      </div>
     </div>
   );
 };
