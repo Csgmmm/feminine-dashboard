@@ -9,6 +9,7 @@ button {
   padding: 0.5rem;
   gap: 10px;
   border: 0px;
+  cursor: pointer;
 }
 
 .primary {
@@ -42,4 +43,7 @@ a {
   text-decoration: none;
 }
 
-
+.secondary {
+  background-color: #ffffff;
+  color: #5b5b5b;
+}

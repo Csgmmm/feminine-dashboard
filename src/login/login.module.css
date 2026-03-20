@@ -5,6 +5,7 @@ input {
   padding: 12px;
   margin-bottom: 12px;
   outline: none;
+  width: 100%;
 }
 
 .loginPage {
@@ -53,4 +54,10 @@ p {
 
 input:focus {
   border: 1.5px solid #A855F7;
+}
+
+.button {
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }

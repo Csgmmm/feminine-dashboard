@@ -3,6 +3,7 @@ import supabase from "../api/supabaseClient";
 import { useNavigate } from "react-router-dom";
 import styles from "./login.module.css";
 import Logo from "../logo/Logo";
+import Button from "../button/Button";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -51,9 +52,9 @@ const Login = () => {
         />
         {error && <p>{error}</p>}
         {/* "Se error tiver valor, mostra o <p> com a mensagem, senão não mostra nada." */}
-        <button className="primary" onClick={handleLogin}>
+        <Button variant="primary" className={styles.button} onClick={handleLogin}>
           Log in
-        </button>
+        </Button>
       </div>
     </div>
   );
