@@ -47,7 +47,6 @@ function Sidebar() {
             >
               <LayoutDashboard />
               <h1>Dashboard</h1>
-              <Homepage />
             </Button>
           </Link>
           <Link to={"/calendar"}>
@@ -58,7 +57,6 @@ function Sidebar() {
             >
               <Calendar1 />
               <h1>Calendar</h1>
-              <Calendar />
             </Button>
           </Link>
           <Link to={"/logs"}>
@@ -69,7 +67,6 @@ function Sidebar() {
             >
               <List />
               <h1>Logs</h1>
-              <Logs />
             </Button>
           </Link>
           <Link to={"/profile"}>
@@ -80,15 +77,19 @@ function Sidebar() {
             >
               <UserPen />
               <h1>Profile</h1>
-              <Profile />
             </Button>
           </Link>
         </nav>
         <nav>
           <Card variant="upgrade">
-            <h3>Get Premium</h3>
-            <h4>Advanced Cycle insights & predictions</h4>
-            <Button variant="primary" className={styles.primaryButton}>Upgrade Now<ArrowRight /></Button>
+            <h3 className={styles.titleCard}>Get Premium</h3>
+            <h4 className={styles.titlesSubTitle}>
+              Advanced Cycle insights & predictions
+            </h4>
+            <Button variant="primary" className={styles.primaryButton}>
+              Upgrade Now
+              <ArrowRight />
+            </Button>
           </Card>
           <Button variant="secondary" onClick={handleLogout}>
             <LogOut />

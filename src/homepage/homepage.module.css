@@ -1,0 +1,16 @@
+h2 {
+  color: rgb(54, 54, 54);
+  font-size: 28px;
+}
+
+h4 {
+  color: rgb(102, 102, 102);
+  font-weight: 500;
+}
+
+.grid {
+  display: grid;
+  gap: 18px;
+  grid-template-columns: repeat(2, 1fr);
+  margin: 1rem;
+}

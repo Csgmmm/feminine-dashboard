@@ -106,16 +106,16 @@
   justify-content: space-between;
 }
 
-h3 {
-  color: white;
+.titleCard {
+  color: rgb(255, 255, 255);
   padding-bottom: 4px;
   font-weight: 700;
   font-size: 20px;
 }
 
-h4 {
-  color: white;
+.titlesSubTitle {
+  color: rgb(255, 255, 255);
   padding-bottom: 14px;
-  font-weight: 300;
+  font-weight: 500;
   font-size: 14px;
 }
