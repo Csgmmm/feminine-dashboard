@@ -12,7 +12,7 @@ type Button = {
 function Button({ children, variant, isActive, className, onClick }: Button) {
   return (
     <button
-      className={`${styles[variant]} ${isActive && "active"} ${className} `}
+      className={`${styles[variant]} ${isActive ? styles.active : ""} ${className} `}
       onClick={onClick}
     >
       {children}

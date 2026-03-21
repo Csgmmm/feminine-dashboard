@@ -8,11 +8,20 @@ import Logs from "../../pages/LogsRecords/Logs";
 import Profile from "../../pages/Profile/Profile";
 import { useNavigate } from "react-router-dom";
 import supabase from "../../api/supabaseClient";
+import {
+  ArrowRight,
+  Calendar1,
+  LayoutDashboard,
+  List,
+  LogOut,
+  UserPen,
+} from "lucide-react";
+import Card from "../../card/Card";
 
 function Sidebar() {
   const location = useLocation();
 
-    const navigate = useNavigate();
+  const navigate = useNavigate();
 
   const handleLogout = async () => {
     await supabase.auth.signOut();
@@ -36,6 +45,8 @@ function Sidebar() {
               isActive={location.pathname === "/homepage" ? true : false}
               className={styles.button}
             >
+              <LayoutDashboard />
+              <h1>Dashboard</h1>
               <Homepage />
             </Button>
           </Link>
@@ -45,6 +56,8 @@ function Sidebar() {
               isActive={location.pathname === "/calendar" ? true : false}
               className={styles.button}
             >
+              <Calendar1 />
+              <h1>Calendar</h1>
               <Calendar />
             </Button>
           </Link>
@@ -54,6 +67,8 @@ function Sidebar() {
               isActive={location.pathname === "/logs" ? true : false}
               className={styles.button}
             >
+              <List />
+              <h1>Logs</h1>
               <Logs />
             </Button>
           </Link>
@@ -63,12 +78,22 @@ function Sidebar() {
               isActive={location.pathname === "/profile" ? true : false}
               className={styles.button}
             >
+              <UserPen />
+              <h1>Profile</h1>
               <Profile />
             </Button>
           </Link>
         </nav>
-        <nav className={styles.navBottom}>
-          <Button variant="secondary" className={styles.logOutButton} onClick={handleLogout}>Logout</Button>
+        <nav>
+          <Card variant="upgrade">
+            <h3>Get Premium</h3>
+            <h4>Advanced Cycle insights & predictions</h4>
+            <Button variant="primary" className={styles.primaryButton}>Upgrade Now<ArrowRight /></Button>
+          </Card>
+          <Button variant="secondary" onClick={handleLogout}>
+            <LogOut />
+            Logout
+          </Button>
         </nav>
       </aside>
     </>
