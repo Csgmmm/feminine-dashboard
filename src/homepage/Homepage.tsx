@@ -38,14 +38,15 @@ function Homepage() {
         <h4>Track your cycle, symptoms and wellbeing.</h4>
 
         {error && <p style={{ color: "red" }}>Erro: {error}</p>}
-        {/* deu erro? então, mostra <p></p> */}
+        {/* deu erro? então, mostra o <p></p> */}
 
         <div className={styles.grid}>
           <Card>
             <h3>Last Cycle</h3>
-            {dataPeriod.length > 0 ? (
+            {dataPeriod.length > 0 ? ( //a duração do dataPeriod é maior que 0? entao, mostra o <p> que é o item mais recente que esta na lenght</p>
               <p>{dataPeriod[0].length} days</p>
             ) : (
+              // senao, mostra este <p></p>
               <p>No info</p>
             )}
           </Card>

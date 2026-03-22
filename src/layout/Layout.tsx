@@ -7,16 +7,10 @@ interface ILayout {
 }
 
 const Layout = ({ children }: ILayout) => {
-
   return (
     <section id={styles.sidebar}>
       <Sidebar />
-      <main className={styles.main}>
-        
-        {children}
-        <footer>Footer!</footer>
-      </main>
-      
+      <main className={styles.main}>{children}</main>
     </section>
   );
 };

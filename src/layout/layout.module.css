@@ -4,7 +4,7 @@
   background-color: #f5f3f3;
   overflow: hidden;
   padding: 1.5rem;
-  gap: 1rem;      
+  gap: 1rem;
 }
 
 .main {
@@ -13,8 +13,4 @@
   overflow-y: auto;
   display: flex;
   flex-direction: column;
-}
-
-.main footer {
-  margin-top: auto;
 }

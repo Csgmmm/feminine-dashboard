@@ -1,0 +1,78 @@
+.main {
+  flex: 1;
+  padding: 0.35rem;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.main footer {
+  margin-top: auto;
+}
+
+.linksFooter {
+  display: flex;
+  gap: 16px;
+  text-decoration: none;
+  list-style: none;
+  border-top: 1px solid #ede3f7;
+  padding-top: 16px;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+.linksFooter li a {
+  width: 40px;
+  height: 40px;
+  background-color: white;
+  text-align: center;
+  line-height: 40px;
+  font-size: 18px;
+  display: block;
+  border-radius: 20%;
+  border: 0.75px solid #a855f7;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.linksFooter li a i {
+  position: relative;
+  color: #a855f7;
+  transition: .5s;
+  z-index: 3;
+  margin: 0;
+}
+
+.linksFooter li a:hover i {
+  color: #a855f7;
+  transform: rotateY(360deg);
+}
+
+.linksFooter li a:before {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transition: .5s;
+  z-index: 2;
+}
+
+.linksFooter li a:hover:before {
+  top: 0;
+}
+
+.linksFooter li:nth-child(1) a:before {
+  background: #e8e0f0; 
+}
+
+.linksFooter li:nth-child(2) a:before {
+  background: #e8e0f0; 
+}
+
+.linksFooter li:nth-child(3) a:before {
+  background: #e8e0f0; 
+}

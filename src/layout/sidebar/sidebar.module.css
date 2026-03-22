@@ -106,6 +106,16 @@
   justify-content: space-between;
 }
 
+.primaryButton:hover {
+  border-radius: 10px;
+  transform: rotate(4deg);
+}
+
+.primaryButton:hover::before {
+  opacity: 0.5;
+  transform: scale(2);
+}
+
 .titleCard {
   color: rgb(255, 255, 255);
   padding-bottom: 4px;
