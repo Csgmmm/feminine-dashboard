@@ -22,7 +22,7 @@ button {
 }
 
 .primary.active,
-.secondary.active {
+.tertiary.active {
   background-color: #f4efff;
   color: #a855f7;
   font-weight: bold;
@@ -30,8 +30,8 @@ button {
 }
 
 .primary:hover {
-  background-color: #ffffff;
-  color: #a855f7;
+  background-color: #632a9a;
+  color: #ffffff;
   transition:
     background-color 0.2s ease,
     transform 0.2s ease;
@@ -44,11 +44,34 @@ a {
 
 .secondary {
   background-color: #ffffff;
+  color: #a855f7;
+  border: 1px solid #a855f7;
+}
+
+.secondary:hover {
+  background-color: #ebd8fd;
+  color: #6c21b2;
+}
+
+.tertiary {
+  background-color: #ffffff;
   color: #697281;
 }
 
-.secondary:not(.active):hover {
+.tertiary:not(.active):hover {
   background-color: #f6f6f6;
   color: #697281;
 
+}
+
+.link {
+  background-color: transparent;
+  color: #a855f7;
+  text-decoration: underline;
+}
+
+.link:hover {
+  background-color: transparent;
+  color: #6c21b2;
+  text-decoration: underline;
 }

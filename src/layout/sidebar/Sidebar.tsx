@@ -28,17 +28,16 @@ function Sidebar() {
   return (
     <>
       <aside className={styles.sidebar}>
-        <Link to={"/homepage"}>
-          <div className={styles.logoContainer}>
-            <Logo />
-            <span className={styles.logoText}>MyCycle</span>
-          </div>
-        </Link>
-
+          <Link to={"/homepage"}>
+            <div className={styles.logoContainer}>
+              <Logo />
+              <span className={styles.logoText}>MyCycle</span>
+            </div>
+          </Link>
         <nav className={styles.nav}>
           <Link to={"/homepage"}>
             <Button
-              variant="secondary"
+              variant="tertiary"
               isActive={location.pathname === "/homepage" ? true : false}
               className={styles.button}
             >
@@ -48,7 +47,7 @@ function Sidebar() {
           </Link>
           <Link to={"/calendar"}>
             <Button
-              variant="secondary"
+              variant="tertiary"
               isActive={location.pathname === "/calendar" ? true : false}
               className={styles.button}
             >
@@ -58,7 +57,7 @@ function Sidebar() {
           </Link>
           <Link to={"/logs"}>
             <Button
-              variant="secondary"
+              variant="tertiary"
               isActive={location.pathname === "/logs" ? true : false}
               className={styles.button}
             >
@@ -68,7 +67,7 @@ function Sidebar() {
           </Link>
           <Link to={"/profile"}>
             <Button
-              variant="secondary"
+              variant="tertiary"
               isActive={location.pathname === "/profile" ? true : false}
               className={styles.button}
             >
@@ -89,7 +88,7 @@ function Sidebar() {
             </Button>
           </Card>
           <Button
-            variant="secondary"
+            variant="tertiary"
             className={styles.button}
             onClick={handleLogout}
           >
