@@ -1,3 +1,9 @@
+.loading {
+  font-size: 18px;
+  color: #444444;
+  font-weight: 600;
+}
+
 .main {
   flex: 1;
   padding: 0.35rem;

@@ -39,7 +39,7 @@ function Profile() {
     //quando o user mudar, executa o useEffect (mostra a img do profile)
     getUser(user!.id).then(setProfile); //vai ao Supabase à tabela users, onde o user_id é igual ao id do user auth. o ! e da para certeza que há smp user
   }, [user]); //apenas volta a correr o useffect, quando o user mudar
-  if (!profile) return <p>Loading...</p>; //se nao houver profile, aparece o <p></p>
+  if (!profile) return <span className={styles.loading}>Loading...</span>; //se nao houver profile, aparece o <p></p>
 
   return (
     <>
@@ -51,7 +51,7 @@ function Profile() {
               src={profile.avatar}
               alt={profile.name}
             />
-          </div>
+          </div>{error && <p>{error}</p>}
           <p className={styles.name}>{profile.name}</p>
           <p className={styles.email}>{profile.email}</p>
           <Button variant="secondary"><p>Hi</p></Button>

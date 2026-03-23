@@ -37,7 +37,7 @@ function Homepage() {
         <h2>Overview</h2>
         <h4>Track your cycle, symptoms and wellbeing.</h4>
 
-        {error && <p style={{ color: "red" }}>Erro: {error}</p>}
+        {error && <p>Erro: {error}</p>}
         {/* deu erro? então, mostra o <p></p> */}
 
         <div className={styles.grid}>
@@ -47,20 +47,22 @@ function Homepage() {
               <p>{dataPeriod[0].length} days</p>
             ) : (
               // senao, mostra este <p></p>
-              <p>No info</p>
+              <span className={styles.loading}>Loading...</span>
             )}
           </Card>
 
           <Card>
             <h3>Logs</h3>
-            <p>{dataPeriod.length} logs</p>
+            {dataPeriod.length > 0 ? (
+              <p>{dataPeriod.length} Logs</p>
+            ) : (
+              <span className={styles.loading}>Loading...</span>
+            )}
           </Card>
 
           <Card>
             <h3>Last Period</h3>
-            {dataPeriod.length > 0 && <p>{dataPeriod[0].startDate}</p>}
-            {/* sendo que organizei o ascending do mais recente para o mais antigo, o [0], singifica que ele vai buscar o elemento mais recente do array */}
-            {/* a duração do dataperiod e maior que 0? então, vai buscar o startdate do primeiro item do dataperiod */}
+            {dataPeriod.length > 0 ? (<p>{dataPeriod[0].startDate}</p>) : (<span className={styles.loading}>Loading...</span>)}
           </Card>
         </div>
       </section>
