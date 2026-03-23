@@ -9,6 +9,8 @@
   transition:
     transform 0.2s ease,
     box-shadow 0.2s ease;
+  overflow-y: auto;
+  min-height: 50px;
 }
 
 .card.upgradeCard {
@@ -16,4 +18,5 @@
   height: fit-content;
   padding: 18px;
   margin-bottom: 1.5rem;
+  overflow-y: auto;
 }
