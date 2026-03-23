@@ -4,10 +4,45 @@
   overflow-y: auto;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  align-content: center;
 }
 
-.main footer {
-  margin-top: auto;
+.img {
+  width: 90px;
+  height: 90px;
+  object-fit: cover;
+  
+}
+
+.Card {
+  align-items: center;
+}
+
+.profileImg {
+  max-width: 80px;
+  max-height: 80px;
+  overflow: hidden;
+  border-radius: 100%;
+  display: flex;
+  align-items: center;
+  border: 3px solid white;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+
+  
+}
+
+.name {
+  color: #3b3b3b;
+  font-size: 16px;
+  font-weight: 700;
+  padding-top: 10px;
+  padding-bottom: 0;
+}
+.email {
+  color: #6e6e6e;
+  padding: 0;
 }
 
 .linksFooter {
@@ -15,11 +50,10 @@
   gap: 16px;
   text-decoration: none;
   list-style: none;
-  border-top: 1px solid #ede3f7;
   padding-top: 16px;
   justify-content: center;
   align-items: center;
-  
+  margin-top: 50px;
 }
 
 .linksFooter li a {
@@ -40,7 +74,7 @@
 .linksFooter li a i {
   position: relative;
   color: #a855f7;
-  transition: .5s;
+  transition: 0.5s;
   z-index: 3;
   margin: 0;
 }
@@ -57,7 +91,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  transition: .5s;
+  transition: 0.5s;
   z-index: 2;
 }
 
@@ -66,13 +100,13 @@
 }
 
 .linksFooter li:nth-child(1) a:before {
-  background: #e8e0f0; 
+  background: #e8e0f0;
 }
 
 .linksFooter li:nth-child(2) a:before {
-  background: #e8e0f0; 
+  background: #e8e0f0;
 }
 
 .linksFooter li:nth-child(3) a:before {
-  background: #e8e0f0; 
+  background: #e8e0f0;
 }
