@@ -47,7 +47,7 @@ function Homepage() {
               <p>{dataPeriod[0].length} days</p>
             ) : (
               // senao, mostra este <p></p>
-              <span className={styles.loading}>Loading...</span>
+              <span className={styles.loading}>No info</span>
             )}
           </Card>
 
@@ -56,13 +56,13 @@ function Homepage() {
             {dataPeriod.length > 0 ? (
               <p>{dataPeriod.length} Logs</p>
             ) : (
-              <span className={styles.loading}>Loading...</span>
+              <span className={styles.loading}>No info</span>
             )}
           </Card>
 
           <Card>
             <h3>Last Period</h3>
-            {dataPeriod.length > 0 ? (<p>{dataPeriod[0].startDate}</p>) : (<span className={styles.loading}>Loading...</span>)}
+            {dataPeriod.length > 0 ? (<p>{dataPeriod[0].startDate}</p>) : (<span className={styles.loading}>No info</span>)}
           </Card>
         </div>
       </section>

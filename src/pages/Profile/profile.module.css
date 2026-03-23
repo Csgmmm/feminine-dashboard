@@ -13,14 +13,12 @@
   align-items: center;
   gap: 20px;
   align-content: center;
-
 }
 
 .img {
   width: 90px;
   height: 90px;
   object-fit: cover;
-  
 }
 
 .Card {
@@ -36,8 +34,6 @@
   align-items: center;
   border: 3px solid white;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-
-  
 }
 
 .name {
@@ -50,7 +46,6 @@
 .email {
   color: #6e6e6e;
   padding: 0;
-
 }
 
 .Card {
@@ -67,8 +62,6 @@
   align-items: center;
   border: 3px solid white;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-
-  
 }
 
 .name {
@@ -107,7 +100,12 @@
   margin-right: 12px;
 }
 
-
+.icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
 span {
   color: #3b3b3b;
   font-size: 14px;

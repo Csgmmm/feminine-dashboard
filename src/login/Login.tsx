@@ -46,6 +46,7 @@ const Login = () => {
               onChange={(e) => setEmail(e.target.value)} //cada vez que algo mudar no input, atualiza o estado com o novo valor
               className={styles.inputEmail}
             />
+
             <input
               type="password"
               placeholder="Insert your password"
@@ -76,7 +77,7 @@ const Login = () => {
             </div>
           </div>
           <div className={styles.rightSide}>
-            <ImageLogIn/>
+            <ImageLogIn />
           </div>
         </div>
       </Card>

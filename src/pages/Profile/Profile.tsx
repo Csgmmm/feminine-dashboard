@@ -6,6 +6,7 @@ import { getUser } from "../../api/usersService";
 import Card from "../../card/Card";
 import supabase from "../../api/supabaseClient";
 import Button from "../../button/Button";
+import { Pencil } from "lucide-react";
 
 function Profile() {
   const { user } = useAuth(); //Aqui, vai ao AuthContext buscar o User para saber quem esta logged in
@@ -51,15 +52,37 @@ function Profile() {
               src={profile.avatar}
               alt={profile.name}
             />
-          </div>{error && <p>{error}</p>}
+          </div>
+          {error && <p>{error}</p>}
           <p className={styles.name}>{profile.name}</p>
           <p className={styles.email}>{profile.email}</p>
-          <Button variant="secondary"><p>Hi</p></Button>
-          
+          <Button variant="link">
+            <p className={styles.icon}>
+              <Pencil width={16} />
+              Edit picture
+            </p>
+          </Button>
+
+          <footer>
+            <ul className={styles.linksFooter}>
+              <li>
+                <a href="#">
+                  <i className="fab fa-facebook-f icon"></i>{" "}
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <i className="fab fa-instagram icon"></i>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <i className="fab fa-linkedin-in icon"></i>
+                </a>
+              </li>
+            </ul>
+          </footer>
         </Card>
-
-
-
       </div>
     </>
   );
