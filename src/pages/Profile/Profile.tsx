@@ -57,7 +57,44 @@ function Profile() {
           <Button variant="secondary"><p>Hi</p></Button>
           
         </Card>
+<<<<<<< HEAD
         <footer>
+=======
+        <Card>
+          
+          <div className={styles.containerCycleInput}>
+            <span className={styles.titleInput}>Latest cycle:</span>
+            <span>
+              <input
+                className={styles.inputCycle}
+                disabled
+                type="text"
+                value={dataPeriod[0]?.length ?? 0}
+                placeholder="Menstrual cycle"
+              />
+              <span>Days</span>
+            </span>
+            {error && <p style={{ color: "red" }}>Erro: {error}</p>}
+          </div>
+          <div className={styles.containerDateInput}>
+            <span className={styles.titleInput}>Last period:</span>
+            <span>
+              <input
+                className={styles.inputDate}
+                disabled
+                type="text"
+                value={dataPeriod[0].startDate}
+                placeholder="Date of your period"
+              />
+              <span>Days</span>
+            </span>
+            <p className={styles.note}>
+              All these values depend on your logs, so they might change.
+            </p>
+            {error && <p style={{ color: "red" }}>Erro: {error}</p>}
+          </div>
+          <footer>
+>>>>>>> 3bc4269042747b3683758ba427c52aeaca3b880e
             <ul className={styles.linksFooter}>
               <li>
                 <a href="#">
@@ -76,6 +113,10 @@ function Profile() {
               </li>
             </ul>
           </footer>
+<<<<<<< HEAD
+=======
+        </Card>
+>>>>>>> 3bc4269042747b3683758ba427c52aeaca3b880e
       </div>
     </>
   );

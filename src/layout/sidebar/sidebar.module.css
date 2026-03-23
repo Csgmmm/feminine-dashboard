@@ -15,7 +15,7 @@
   align-items: center;
   gap: 0.55rem;
   margin-bottom: 3rem;
-  padding: 0 0.5rem;
+
 }
 
 .logoText {
@@ -27,12 +27,13 @@
 .nav {
   display: flex;
   flex-direction: column;
-  gap: 0.85rem;
-  flex: 1;
-  padding-bottom: 20px;
+  gap: 8px;
+  padding-bottom: 50px;
 }
-
-
+.bottomNav {
+  margin-top: auto;
+  
+}
 
 .link {
   display: flex;

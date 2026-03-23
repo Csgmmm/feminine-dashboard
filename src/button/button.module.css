@@ -50,5 +50,5 @@ a {
 .secondary:not(.active):hover {
   background-color: #f6f6f6;
   color: #697281;
-  width: 100%;
+
 }

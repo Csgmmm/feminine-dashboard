@@ -11,6 +11,7 @@ function Card({ children, variant = "default", className }: ICard) {
   return (
     <div
       className={`${styles.card} ${variant === "upgrade" ? styles.upgradeCard : ""} ${className}`}
+
     >
       {children}
     </div>

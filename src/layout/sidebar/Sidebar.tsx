@@ -80,7 +80,7 @@ function Sidebar() {
             </Button>
           </Link>
         </nav>
-        <nav>
+        <nav className={styles.bottomNav}>
           <Card variant="upgrade">
             <h3 className={styles.titleCard}>Get Premium</h3>
             <h4 className={styles.titlesSubTitle}>
@@ -91,7 +91,11 @@ function Sidebar() {
               <ArrowRight />
             </Button>
           </Card>
-          <Button variant="secondary" onClick={handleLogout}>
+          <Button
+            variant="secondary"
+            className={styles.button}
+            onClick={handleLogout}
+          >
             <LogOut />
             Logout
           </Button>
