@@ -1,11 +1,8 @@
 import { Link, useLocation } from "react-router-dom";
 import styles from "./sidebar.module.css";
-import Homepage from "../../homepage/Homepage";
 import Logo from "../../logo/Logo";
 import Button from "../../button/Button";
-import Calendar from "../../pages/Calendar/Calendar";
-import Logs from "../../pages/LogsRecords/Logs";
-import Profile from "../../pages/Profile/Profile";
+
 import { useNavigate } from "react-router-dom";
 import supabase from "../../api/supabaseClient";
 import {
