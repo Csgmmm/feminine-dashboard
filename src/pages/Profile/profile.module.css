@@ -47,7 +47,7 @@
 
 .Card {
   align-items: center;
-  padding: 24px;
+  padding: 44px;
   overflow-y: auto;
 }
 
@@ -58,20 +58,33 @@
   gap: 8px;
 }
 
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
 .inputsContainer {
   width: 100%;
   display: grid;
   grid-template-columns: auto auto;
-  gap: 18px;
+  gap: 12px;
 }
 
 .input {
   width: 100%;
+  margin:0
+}
+
+.inputDisabled {
+  width: 100%;
+  background-color: #eeeeee;
 }
 
 .button {
   width: fit-content;
+  margin-top: 18px;
 }
+
 
 .linksFooter {
   display: flex;

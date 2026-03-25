@@ -10,7 +10,7 @@ import { updateUserName } from "../../api/usersService";
 
 function Profile() {
   const { user } = useAuth(); //Aqui, vai ao AuthContext buscar o User para saber quem esta logged in
-  const [profile, setProfile] = useState<IUsers | null>(null); //para guardar os dados e usa-los
+  const [profile, setProfile] = useState<IUsers | null>(null); //utiliza todos os elemtos que estao no IUsers no TS, name, email, avatar e id
   const [newName, setNewName] = useState("");
   const [newEmail, setNewEmail] = useState("");
 
@@ -56,50 +56,50 @@ function Profile() {
             </p>
           </Button>
 
-          <div className={styles.container}></div>
-          <div className={styles.inputsContainer}>
-            <label className={styles.titleLabel}>
-              Name
-              <input
-                type="text"
-                value={newName}
-                placeholder="Insert name"
-                onChange={(e) => setNewName(e.target.value)}
-                className={styles.input}
-              />
-            </label>
+          <div className={styles.container}>
+            <div className={styles.inputsContainer}>
+              <label className={styles.titleLabel}>
+                Name
+                <input
+                  type="text"
+                  value={newName}
+                  placeholder="Insert name"
+                  onChange={(e) => setNewName(e.target.value)}
+                  className={styles.input}
+                />
+              </label>
 
-            <label className={styles.titleLabel}>
-              Email
-              <input
-                type="text"
-                value={newEmail}
-                placeholder="Insert email"
-                onChange={(e) => setNewEmail(e.target.value)}
-                className={styles.input}
-              />
-            </label>
+              <label className={styles.titleLabel}>
+                Email
+                <input
+                  type="text"
+                  value={newEmail}
+                  placeholder="Insert email"
+                  onChange={(e) => setNewEmail(e.target.value)}
+                  className={styles.input}
+                />
+              </label>
 
-            <label className={styles.titleLabel}>
-              ID
-              <input
-                type="text"
-                value={profile.id}
-                placeholder="Insert email"
-                className={styles.input}
-              />
-            </label>
-
+              <label className={styles.titleLabel}>
+                ID
+                <input
+                  type="text"
+                  value={profile.id}
+                  disabled={true}
+                  placeholder="Insert email"
+                  className={styles.inputDisabled}
+                />
+              </label>
             </div>
-            <Button
-              variant="primary"
-              className={styles.button}
-              onClick={saveAll}
-              disabled={!infoChanged}
+          <Button
+            variant="primary"
+            className={styles.button}
+            onClick={saveAll}
+            disabled={!infoChanged}
             >
-              Save changes
-            </Button>
-
+            Save changes
+          </Button>
+            </div>
           <footer>
             <ul className={styles.linksFooter}>
               <li>
@@ -119,6 +119,7 @@ function Profile() {
               </li>
             </ul>
           </footer>
+
         </Card>
       </div>
     </>
