@@ -6,7 +6,7 @@
 
 .main {
   flex: 1;
-  padding: 0.35rem;
+  padding: 0rem 3rem;
   overflow-y: auto;
   display: flex;
   flex-direction: column;
@@ -47,7 +47,7 @@
 
 .Card {
   align-items: center;
-  padding: 44px;
+  padding: 44px 122px;
   overflow-y: auto;
 }
 
@@ -58,6 +58,14 @@
   gap: 8px;
 }
 
+.titleLabel {
+  color: #3b3b3b;
+  font-size: 16px;
+  font-weight: 500;
+  display: flex;
+  gap: 8px;
+  flex-direction: column;
+}
 .container {
   display: flex;
   flex-direction: column;
@@ -67,12 +75,13 @@
   width: 100%;
   display: grid;
   grid-template-columns: auto auto;
-  gap: 12px;
+  gap: 16px;
 }
 
 .input {
   width: 100%;
-  margin:0
+  margin: 0;
+
 }
 
 .inputDisabled {
@@ -85,6 +94,9 @@
   margin-top: 18px;
 }
 
+footer {
+  width: 100%;
+}
 
 .linksFooter {
   display: flex;
@@ -95,6 +107,8 @@
   justify-content: center;
   align-items: center;
   margin-top: 50px;
+  border-top: 1px solid #f8e9fd;
+
 }
 
 .linksFooter li a {
