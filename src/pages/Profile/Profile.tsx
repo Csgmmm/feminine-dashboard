@@ -31,6 +31,8 @@ function Profile() {
     setNewEmail("");
   };
   if (!profile) return <span className={styles.loading}>Loading...</span>; //enquanto nao houver dados, aparece loading
+  
+  //para a CTA disabled
   const infoChanged =
     (newName !== profile.name && newName !== "") ||
     (newEmail !== profile.email && newEmail !== "");

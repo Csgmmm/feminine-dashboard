@@ -26,9 +26,9 @@ button {
   cursor: not-allowed;
 }
 
-.primary:disabled:hover{
+.primary:disabled:hover {
   background-color: #9d9d9d;
-  cursor: not-allowed;
+  cursor: default;
 }
 
 .primary:hover {
@@ -84,4 +84,3 @@ a {
   color: #6c21b2;
   text-decoration: underline;
 }
-
