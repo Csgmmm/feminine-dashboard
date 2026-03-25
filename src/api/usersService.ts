@@ -19,3 +19,20 @@ export const createUser = async (userId: string, name: string, avatar: string): 
 
   if (error) console.error(error);
 };
+
+export const updateUserName = async (userId: string, name: string) => {
+  const { error } = await supabase
+    .from("users")
+    .update({ name })
+    .eq("user_id", userId);
+
+  if (error) throw error;
+};
+
+export const updateUserEmail = async (userId: string, email: string) => {
+  const {error} = await supabase
+  .from("users")
+  .update({email})
+  .eq("user_id", userId);
+  if (error) throw error
+}

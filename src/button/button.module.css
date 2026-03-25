@@ -21,12 +21,14 @@ button {
   color: #ffffff;
 }
 
-.primary.active,
-.tertiary.active {
-  background-color: #f4efff;
-  color: #a855f7;
-  font-weight: bold;
-  cursor: default;
+.primary:disabled {
+  background-color: #9d9d9d;
+  cursor: not-allowed;
+}
+
+.primary:disabled:hover{
+  background-color: #9d9d9d;
+  cursor: not-allowed;
 }
 
 .primary:hover {
@@ -36,10 +38,6 @@ button {
     background-color 0.2s ease,
     transform 0.2s ease;
   cursor: pointer;
-}
-
-a {
-  text-decoration: none;
 }
 
 .secondary {
@@ -53,6 +51,18 @@ a {
   color: #6c21b2;
 }
 
+.primary.active,
+.tertiary.active {
+  background-color: #f4efff;
+  color: #a855f7;
+  font-weight: bold;
+  cursor: default;
+}
+
+a {
+  text-decoration: none;
+}
+
 .tertiary {
   background-color: #ffffff;
   color: #697281;
@@ -61,7 +71,6 @@ a {
 .tertiary:not(.active):hover {
   background-color: #f6f6f6;
   color: #697281;
-
 }
 
 .link {
@@ -75,3 +84,4 @@ a {
   color: #6c21b2;
   text-decoration: underline;
 }
+

@@ -2,45 +2,38 @@ import { useEffect, useState } from "react";
 import { useAuth } from "../../context/AuthContext";
 import styles from "./profile.module.css";
 import type { IUsers } from "../../types/types";
-import { getUser } from "../../api/usersService";
+import { getUser, updateUserEmail } from "../../api/usersService";
 import Card from "../../card/Card";
-import supabase from "../../api/supabaseClient";
 import Button from "../../button/Button";
 import { Pencil } from "lucide-react";
+import { updateUserName } from "../../api/usersService";
 
 function Profile() {
   const { user } = useAuth(); //Aqui, vai ao AuthContext buscar o User para saber quem esta logged in
   const [profile, setProfile] = useState<IUsers | null>(null); //para guardar os dados e usa-los
-
-  const [dataPeriod, setDataPeriod] = useState<any[]>([]);
-  const [error, setError] = useState<string | null>(null);
-
-  const handleDataPeriod = async () => {
-    const result = await supabase.auth.getUser();
-    const user = result.data.user;
-
-    const { data, error: supabaseError } = await supabase
-      .from("cycles")
-      .select("*")
-      .eq("user_id", user!.id)
-      .order("startDate", { ascending: false });
-
-    if (supabaseError) {
-      setError(supabaseError.message);
-      return;
-    }
-
-    if (data) {
-      setDataPeriod(data);
-    }
-  };
+  const [newName, setNewName] = useState("");
+  const [newEmail, setNewEmail] = useState("");
 
   useEffect(() => {
-    handleDataPeriod();
-    //quando o user mudar, executa o useEffect (mostra a img do profile)
-    getUser(user!.id).then(setProfile); //vai ao Supabase à tabela users, onde o user_id é igual ao id do user auth. o ! e da para certeza que há smp user
-  }, [user]); //apenas volta a correr o useffect, quando o user mudar
-  if (!profile) return <span className={styles.loading}>Loading...</span>; //se nao houver profile, aparece o <p></p>
+    getUser(user!.id).then((data) => {
+      if (!data) return;
+      setProfile(data);
+      setNewName(data.name);
+      setNewEmail(data.email);
+    });
+  }, [user]);
+
+  const saveAll = async () => {
+    await updateUserName(user!.id, newName);
+    await updateUserEmail(user!.id, newEmail);
+    setProfile({ ...profile!, name: newName, email: newEmail });
+    setNewName(""); //após guardar, dá reset e fica um string vazio
+    setNewEmail("");
+  };
+  if (!profile) return <span className={styles.loading}>Loading...</span>; //enquanto nao houver dados, aparece loading
+  const infoChanged =
+    (newName !== profile.name && newName !== "") ||
+    (newEmail !== profile.email && newEmail !== "");
 
   return (
     <>
@@ -53,7 +46,7 @@ function Profile() {
               alt={profile.name}
             />
           </div>
-          {error && <p>{error}</p>}
+
           <p className={styles.name}>{profile.name}</p>
           <p className={styles.email}>{profile.email}</p>
           <Button variant="link">
@@ -62,6 +55,50 @@ function Profile() {
               Edit picture
             </p>
           </Button>
+
+          <div className={styles.container}></div>
+          <div className={styles.inputsContainer}>
+            <label className={styles.titleLabel}>
+              Name
+              <input
+                type="text"
+                value={newName}
+                placeholder="Insert name"
+                onChange={(e) => setNewName(e.target.value)}
+                className={styles.input}
+              />
+            </label>
+
+            <label className={styles.titleLabel}>
+              Email
+              <input
+                type="text"
+                value={newEmail}
+                placeholder="Insert email"
+                onChange={(e) => setNewEmail(e.target.value)}
+                className={styles.input}
+              />
+            </label>
+
+            <label className={styles.titleLabel}>
+              ID
+              <input
+                type="text"
+                value={profile.id}
+                placeholder="Insert email"
+                className={styles.input}
+              />
+            </label>
+
+            </div>
+            <Button
+              variant="primary"
+              className={styles.button}
+              onClick={saveAll}
+              disabled={!infoChanged}
+            >
+              Save changes
+            </Button>
 
           <footer>
             <ul className={styles.linksFooter}>
