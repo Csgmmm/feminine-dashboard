@@ -100,14 +100,6 @@ function Sidebar({ isOpen, setIsOpen }: ISidebar) {
                   </span>
                 </Button>
               </Card>
-              <Button
-                variant="tertiary"
-                className={styles.button}
-                onClick={handleLogout}
-              >
-                <LogOut />
-                <span className={styles.logOutBtn}>Logout</span>
-              </Button>
             </nav>
           </>
         )}

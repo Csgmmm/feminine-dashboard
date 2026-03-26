@@ -18,8 +18,6 @@
   }
 }
 
-
-
 /* Container do logo */
 .logoContainer {
   display: flex;
@@ -67,8 +65,7 @@
 }
 
 @media (max-width: 768px) {
-  .bottomNav h3,
-  h4 {
+  .bottomNav h3 {
     display: none;
   }
 }
@@ -88,6 +85,11 @@
   font-size: 14px;
 }
 
+@media (max-width: 768px) {
+  .titlesSubTitle {
+    display: none;
+  }
+}
 /* button do Get Premium */
 
 .button {
@@ -133,19 +135,9 @@
   transform: scale(2);
 }
 
-/* logOut button */
-@media (max-width: 768px) {
-  .logOutBtn {
-    display: none;
-  }
-}
-
-
 /* Hamburguer menu */
 .hamburguer {
-  border-top: 1px solid #eeeeee;
   border-radius: 0;
-  margin-top: 18px;
 
 }
 
@@ -159,8 +151,7 @@
   padding: 24px 16px 16px;
   width: 100%;
   display: flex;
-  justify-content: flex-start;
-
+  justify-content: flex-end;
 }
 
 @media (max-width: 768px) {

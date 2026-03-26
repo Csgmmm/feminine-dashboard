@@ -5,7 +5,7 @@ import type { IUsers } from "../../types/types";
 import { getUser, updateUserEmail } from "../../api/usersService";
 import Card from "../../card/Card";
 import Button from "../../button/Button";
-import { Bell, Camera, Pencil, Settings } from "lucide-react";
+import { Bell, Camera, Settings } from "lucide-react";
 import { updateUserName } from "../../api/usersService";
 import Toggle from "../../toggle/Toggle";
 

@@ -32,24 +32,6 @@
   border-radius: 100%;
 }
 
-.cameraBtn {
-  position: absolute;
-  bottom: 0;
-  right: -4px;
-  background-color: #b670e8;
-  border: none;
-  border-radius: 100%;
-  width: 26px;       
-  height: 26px;       
-  min-width: 26px;      
-  min-height: 26px;    
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  color: white;
-  padding: 0;  
-}
 .profileImg {
   width: 80px;
   height: 80px;
@@ -61,6 +43,25 @@
   border: 3px solid white;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   position: relative;
+}
+
+.cameraBtn {
+  position: absolute;
+  bottom: 0;
+  right: -4px;
+  background-color: #b670e8;
+  border: none;
+  border-radius: 100%;
+  width: 26px;
+  height: 26px;
+  min-width: 26px;
+  min-height: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: white;
+  padding: 0;
 }
 
 .name {
@@ -94,7 +95,6 @@
 
 .iconTitle {
   padding-left: 12px;
-  
 }
 
 .icon {
@@ -153,16 +153,17 @@
   margin-top: 18px;
 }
 
-
 /*2nd card */
 
 .notificationsContainer {
   width: 100%;
-  gap: 18px;
+  display: flex;
+  gap:18px;
+  flex-direction: column;
 }
 
 .notificationsContainer span {
-  color:#3a3a3a
+  color: #3a3a3a;
 }
 
 /*3nd card */
@@ -171,8 +172,8 @@
   width: 100%;
 }
 
-.note{
-  color:#7d7d7d;
+.note {
+  color: #7d7d7d;
   font-size: 14px;
   padding-top: 16px;
 }

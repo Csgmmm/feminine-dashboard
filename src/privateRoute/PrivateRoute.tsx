@@ -8,7 +8,7 @@ import type { ReactNode } from "react";
 // Se não há user, manda para /login
 // Se há user, mostra a página com o Layout
 const PrivateRoute = ({ children }: { children: ReactNode }) => {
-  const { user, loading } = useAuth(); //ProtectedRoute que recebe children e vai buscar o user e o loading ao contexto de autenticação
+  const { user, loading } = useAuth(); //ProtectedRoute recebe children e vai buscar o user e o loading ao contexto de autenticação
 
   if (loading) return <p>A carregar...</p>; //Se ainda estiver a carregar mostra uma mensagem,
   if (!user) return <Navigate to="/login" />; // se não houver utilizador redireciona para o login,
