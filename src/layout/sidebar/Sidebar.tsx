@@ -6,11 +6,11 @@ import Button from "../../button/Button";
 import { useNavigate } from "react-router-dom";
 import supabase from "../../api/supabaseClient";
 import {
-  ArrowRight,
   Calendar1,
   LayoutDashboard,
   List,
   LogOut,
+  Star,
   UserPen,
 } from "lucide-react";
 import Card from "../../card/Card";
@@ -77,14 +77,14 @@ function Sidebar() {
           </Link>
         </nav>
         <nav className={styles.bottomNav}>
-          <Card variant="upgrade">
+          <Card variant="upgrade" className={styles.cardPremium}>
             <h3 className={styles.titleCard}>Get Premium</h3>
             <h4 className={styles.titlesSubTitle}>
               Advanced Cycle insights & predictions
             </h4>
             <Button variant="primary" className={styles.primaryButton}>
-              Upgrade Now
-              <ArrowRight />
+              <h1>Upgrade Now</h1>
+              <span><Star /></span>
             </Button>
           </Card>
           <Button
@@ -93,7 +93,7 @@ function Sidebar() {
             onClick={handleLogout}
           >
             <LogOut />
-            Logout
+            <h1>Logout</h1>
           </Button>
         </nav>
       </aside>

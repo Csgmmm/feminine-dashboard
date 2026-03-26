@@ -14,7 +14,9 @@
   gap: 20px;
   align-content: center;
 }
-
+.title {
+  width: 100%;
+}
 .img {
   width: 100%;
   height: 100%;
@@ -47,7 +49,7 @@
 
 .Card {
   align-items: center;
-  padding: 44px 122px;
+  padding: 44px 80px;
   overflow-y: auto;
 }
 

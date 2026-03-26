@@ -9,14 +9,24 @@
   border-radius: 16px;
   overflow-y: auto;
 }
-
-
+@media (max-width: 768px) {
+  .sidebar {
+    width: 70px;
+    padding: 1.5rem 0.5rem;
+  }
+}
 
 .logoContainer {
   display: flex;
   align-items: center;
   gap: 0.55rem;
+}
 
+@media (max-width: 768px) {
+  .logoContainer {
+    display: flex;
+    justify-content: space-around;
+  }
 }
 
 .logoText {
@@ -25,15 +35,35 @@
   color: rgb(79, 79, 79);
 }
 
+@media (max-width: 768px) {
+  .logoText {
+    display: none;
+  }
+}
+
 .nav {
   display: flex;
   flex-direction: column;
   gap: 8px;
   padding: 40px 0 50px;
 }
+
+@media (max-width: 768px) {
+  .nav h1 {
+    display: none;
+  }
+}
+
 .bottomNav {
   margin-top: auto;
-  
+}
+
+@media (max-width: 768px) {
+  .bottomNav h3,
+  h4,
+  h1 {
+    display: none;
+  }
 }
 
 .link {
@@ -106,9 +136,25 @@
   justify-content: space-between;
 }
 
+@media (max-width: 768px) {
+  .primaryButton {
+    padding: 0;
+    justify-content: center;
+    background-color: transparent;
+    color: white;
+  }
+}
+
 .primaryButton:hover {
-  border-radius: 10px;
+  border-radius: 14px;
   transform: rotate(4deg);
+}
+
+@media (max-width: 768px) {
+  .primaryButton:hover {
+    transform: none;
+   background-color: transparent;
+  }
 }
 
 .primaryButton:hover::before {

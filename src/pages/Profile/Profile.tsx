@@ -31,7 +31,7 @@ function Profile() {
     setNewEmail("");
   };
   if (!profile) return <span className={styles.loading}>Loading...</span>; //enquanto nao houver dados, aparece loading
-  
+
   //para a CTA disabled
   const infoChanged =
     (newName !== profile.name && newName !== "") ||
@@ -41,6 +41,9 @@ function Profile() {
     <>
       <div className={styles.main}>
         <Card className={styles.Card}>
+          <span className={styles.title}>
+            <h2>Settings</h2>
+          </span>
           <div className={styles.profileImg}>
             <img
               className={styles.img}
@@ -93,15 +96,15 @@ function Profile() {
                 />
               </label>
             </div>
-          <Button
-            variant="primary"
-            className={styles.button}
-            onClick={saveAll}
-            disabled={!infoChanged}
+            <Button
+              variant="primary"
+              className={styles.button}
+              onClick={saveAll}
+              disabled={!infoChanged}
             >
-            Save changes
-          </Button>
-            </div>
+              Save changes
+            </Button>
+          </div>
           <footer>
             <ul className={styles.linksFooter}>
               <li>
@@ -121,7 +124,6 @@ function Profile() {
               </li>
             </ul>
           </footer>
-
         </Card>
       </div>
     </>

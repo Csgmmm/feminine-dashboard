@@ -22,3 +22,11 @@
   margin-bottom: 1.5rem;
   overflow-y: auto;
 }
+
+@media (max-width: 768px) {
+  .card.upgradeCard {
+    padding: 14px;
+  }
+}
+
+
