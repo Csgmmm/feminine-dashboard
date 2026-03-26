@@ -31,8 +31,8 @@ const Login = () => {
           <div className={styles.leftSide}>
             <Logo />
             <div className={styles.titleInput}>
-              <h2>Welcome to MyCicle</h2>
-              <h3>This is your safe place</h3>
+              <h2 className={styles.title}>Welcome to MyCicle</h2>
+              <h3 className={styles.subtitle}>This is your safe place</h3>
             </div>
             <input
               type="email"

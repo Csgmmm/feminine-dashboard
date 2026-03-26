@@ -76,12 +76,12 @@ input {
   padding-top: 18px;
 }
 
-h2 {
+.title {
   padding-bottom: 12px;
   color: #3a3a3a;
 }
 
-h3 {
+.subtitle {
   color: #3e3e3e;
   font-weight: 500;
   padding-bottom: 24px;

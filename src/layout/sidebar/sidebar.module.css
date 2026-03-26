@@ -1,10 +1,12 @@
+/* sidebar */
+
 .sidebar {
   width: 260px;
   background-color: rgb(255, 255, 255);
   height: 100%;
   display: flex;
   flex-direction: column;
-  padding: 1.5rem 1rem;
+  padding: 1rem 1rem;
   box-shadow: 2px 0 8px rgba(0, 0, 0, 0.05);
   border-radius: 16px;
   overflow-y: auto;
@@ -16,10 +18,14 @@
   }
 }
 
+
+
+/* Container do logo */
 .logoContainer {
   display: flex;
   align-items: center;
   gap: 0.55rem;
+  padding-top: 16px;
 }
 
 @media (max-width: 768px) {
@@ -41,6 +47,7 @@
   }
 }
 
+/* nav  */
 .nav {
   display: flex;
   flex-direction: column;
@@ -54,81 +61,45 @@
   }
 }
 
+/* bottom nav */
 .bottomNav {
   margin-top: auto;
 }
 
 @media (max-width: 768px) {
   .bottomNav h3,
-  h4,
-  h1 {
+  h4 {
     display: none;
   }
 }
 
-.link {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  padding: 0.75rem 1rem;
-  border-radius: 12px;
-  text-decoration: none;
-  font-size: 16px;
-  font-weight: 600;
-  transition: background 0.2s;
-  color: #4c4c4c;
-}
-
-.link:hover {
-  background-color: #f4f4f4;
-  color: #4c4c4c;
-}
-
-.link.active {
-  background-color: #fce4f3;
-  color: #c2558b;
+/* card Upgrade */
+.titleCard {
+  color: rgb(255, 255, 255);
+  padding-bottom: 4px;
   font-weight: 700;
+  font-size: 20px;
 }
 
-.user {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  border-top: 1px solid #f0e6f0;
-  padding-top: 1rem;
+.titlesSubTitle {
+  color: rgb(255, 255, 255);
+  padding-bottom: 14px;
+  font-weight: 500;
+  font-size: 14px;
 }
 
-.avatar {
-  width: 40px;
-  height: 40px;
-
-  display: flex;
-  align-items: center;
-}
-
-.userName {
-  color: #4c4c4c;
-  font-size: 18px;
-  font-weight: 700;
-}
-
-.userEmail {
-  color: #6d6d6d;
-  font-size: 16px;
-  font-weight: 400;
-}
-
-.user button {
-  background-color: transparent;
-  color: #eb7fa4;
-  cursor: pointer;
-}
+/* button do Get Premium */
 
 .button {
   justify-content: flex-start;
   width: 100%;
 }
 
+@media (max-width: 768px) {
+  .buttonUpgrade {
+    display: none;
+  }
+}
 .primaryButton {
   background-color: #ffffff;
   color: #2b144e;
@@ -153,7 +124,7 @@
 @media (max-width: 768px) {
   .primaryButton:hover {
     transform: none;
-   background-color: transparent;
+    background-color: transparent;
   }
 }
 
@@ -162,16 +133,46 @@
   transform: scale(2);
 }
 
-.titleCard {
-  color: rgb(255, 255, 255);
-  padding-bottom: 4px;
-  font-weight: 700;
-  font-size: 20px;
+/* logOut button */
+@media (max-width: 768px) {
+  .logOutBtn {
+    display: none;
+  }
 }
 
-.titlesSubTitle {
-  color: rgb(255, 255, 255);
-  padding-bottom: 14px;
-  font-weight: 500;
-  font-size: 14px;
+
+/* Hamburguer menu */
+.hamburguer {
+  border-top: 1px solid #eeeeee;
+  border-radius: 0;
+  margin-top: 18px;
+
+}
+
+.closed .hamburguer {
+  border: none;
+  margin: 0;
+  padding: 16px;
+}
+
+.open .hamburguer {
+  padding: 24px 16px 16px;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+
+}
+
+@media (max-width: 768px) {
+  .open .hamburguer {
+    display: flex;
+    justify-content: space-around;
+  }
+}
+
+.closed {
+  width: fit-content;
+  height: fit-content;
+  overflow: hidden;
+  padding: 0;
 }
