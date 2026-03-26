@@ -14,9 +14,8 @@ function Profile() {
   const [profile, setProfile] = useState<IUsers | null>(null); //utiliza todos os elemtos que estao no IUsers no TS, name, email, avatar e id
   const [newName, setNewName] = useState("");
   const [newEmail, setNewEmail] = useState("");
-  const [isOn, setIsOn] = useState(false); //o ison é o valor atual.
-  // e o setOn é a função para mudar o valor, de acordo com o onToggle
-  // que criei na interface do component
+  const [periodAlert, setPeriodAlert] = useState(false);
+  const [pmsAlert, setPmsAlert] = useState(false);
 
   useEffect(() => {
     getUser(user!.id).then((data) => {
@@ -67,7 +66,7 @@ function Profile() {
             <h3 className={styles.iconTitle}>Settings</h3>
           </span>
 
-          <div className={styles.container}>
+          <div className={styles.settingsContainer}>
             <div className={styles.inputsContainer}>
               <label className={styles.titleLabel}>
                 Name
@@ -120,21 +119,32 @@ function Profile() {
             </span>
             <h3 className={styles.iconTitle}>Notifications</h3>
           </span>
-          <div className={styles.container}>
+          <div className={styles.notificationsContainer}>
             <Toggle
-              isOn={isOn}
-              onToggle={() => setIsOn(!isOn)}
+              isOn={periodAlert}
+              onToggle={() => setPeriodAlert(!periodAlert)}
               label="Upcoming period "
             />
             <Toggle
-              isOn={isOn}
-              onToggle={() => setIsOn(!isOn)}
+              isOn={pmsAlert}
+              onToggle={() => setPmsAlert(!pmsAlert)}
               label="Before Premenstrual syndrome alerts"
             />
             {/* isOn={isOn} passa o estado atual do toggle (true ou false) pq é boolean */}
             {/* onToggle={() ação, inverte o estado, se estava true passa a false e vice-versa*/}
           </div>
-          
+        </Card>
+        <Card className={styles.Card}>
+          <span className={styles.title}>
+            <span className={styles.icon}>
+              <Bell />
+            </span>
+            <h3 className={styles.iconTitle}>Data</h3>
+          </span>
+          <span className={styles.dataContainer}>
+            <Button variant="primary">Export data as PDF</Button>
+            <p className={styles.note}>You can take this file to a medical appointment</p>
+          </span>
         </Card>
       </div>
     </>
