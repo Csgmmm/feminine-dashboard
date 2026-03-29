@@ -36,8 +36,8 @@ function Calendar() {
           <span>
             <h2 className={styles.title}>Your cycle, at a glance</h2>
             <p>
-              Each day tells a story. Tap any date to see what you logged from
-              flow intensity to mood, cravings, and everything in between
+              Tap any date to see what you logged from flow intensity to mood,
+              cravings, and everything in between
             </p>
           </span>
 

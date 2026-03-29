@@ -132,3 +132,22 @@
     grid-template-columns: repeat(1, 1fr);
   }
 }
+
+.infoTextDays {
+  font-size: 14px;
+}
+
+.linkIcon {
+  color: #337aff;
+  padding: 4px;
+  border-radius: 44px;
+  display: flex;
+  text-align: center;
+  margin: 0;
+  width: fit-content;
+}
+
+.containerCard {
+  display: flex;
+  justify-content: space-between;
+}

@@ -1,15 +1,16 @@
-import { useState, useEffect } from "react"; // Adicionamos o useEffect
+import { useState, useEffect } from "react"; 
 import Card from "../card/Card";
 import styles from "./homepage.module.css";
 import supabase from "../api/supabaseClient";
 import type { IUsers } from "../types/types";
 import { useAuth } from "../context/AuthContext";
 import { getUser } from "../api/usersService";
-import { ChevronDown, LogOut, UserPen } from "lucide-react";
+import { ArrowRight, ChevronDown, LogOut, UserPen } from "lucide-react";
 import { Link } from "react-router-dom";
 import Button from "../button/Button";
 import { useNavigate } from "react-router-dom";
 import EmptyState from "../emptyState/EmptyState";
+import Cycle from "../cycle/Cycle";
 
 function Homepage() {
   const { user } = useAuth();
@@ -128,7 +129,7 @@ function Homepage() {
           </div>
         </div>
 
-        {error && <p>Erro: {error}</p>}
+        {error && <p>Error: {error}</p>}
         {/* deu erro? então, mostra o <p></p> */}
 
         {dataPeriod.length === 0 && dataLogs.length === 0 ? (
@@ -143,43 +144,85 @@ function Homepage() {
         ) : (
           <div className={styles.grid}>
             <Card>
-              <h3>Last Cycle</h3>
-              {dataPeriod.length > 0 ? ( //a duração do dataPeriod é maior que 0? entao, mostra o <p> que é o item mais recente que esta na lenght</p>
-                <p>{dataPeriod[0].length} days</p>
-              ) : (
-                // senao, mostra este <p></p>
-                <span className={styles.loading}>No info</span>
-              )}
+              <div className={styles.containerCard}>
+                <div className={styles.titleCardLength}>
+                  <h5>Last Cycle</h5>
+                  {dataPeriod.length > 0 ? ( //a duração do dataPeriod é maior que 0? entao, mostra o <p> que é o item mais recente que esta na lenght</p>
+                    <h1>{dataPeriod[0].length} days</h1>
+                  ) : (
+                    // senao, mostra este <p></p>
+                    <span className={styles.loading}>No info</span>
+                  )}
+                </div>
+
+                <Button variant="link">
+                  <Link to={"/calendar"}>
+                    <span className={styles.linkIcon}>
+                      <ArrowRight />
+                    </span>
+                  </Link>
+                </Button>
+              </div>
             </Card>
 
             <Card>
-              <h3>Logs</h3>
-              {dataLogs.length > 0 ? (
-                <p>{dataLogs.length} Logs</p>
-              ) : (
-                <span className={styles.loading}>No info</span>
-              )}
+              <div className={styles.containerCard}>
+                <div className={styles.titleCardLength}>
+                  <h5>Logs</h5>
+                  {dataLogs.length > 0 ? (
+                    <h1>{dataLogs.length}</h1>
+                  ) : (
+                    <span className={styles.loading}>No info</span>
+                  )}
+                </div>
+                <Button variant="link">
+                  <Link to={"/logs"}>
+                    <span className={styles.linkIcon}>
+                      <ArrowRight />
+                    </span>
+                  </Link>
+                </Button>
+              </div>
             </Card>
 
             <Card>
-              <h3>Last Period</h3>
-              {dataPeriod.length > 0 ? (
-                <p>{dataPeriod[0].startDate}</p>
-              ) : (
-                <span className={styles.loading}>No info</span>
-              )}
+              <div className={styles.containerCard}>
+                <div className={styles.titleCardLength}>
+                  <h5>Average Cycle</h5>
+                  <h1>
+                    {averageCycle !== "No info" ? (
+                      <>{averageCycle} days</>
+                    ) : (
+                      <span className={styles.loading}>No info</span>
+                    )}
+                  </h1>
+                  {/* o averageCycle é dif do "No info" ? Então, mostra x , senão : mostra y */}
+                </div>
+              </div>
             </Card>
+
             <Card>
-              <h3>Average Cycle</h3>
-              {averageCycle !== "No info" ? (
-                `${averageCycle} days`
-              ) : (
-                <span className={styles.loading}>No info</span>
-              )}
-              {/* o averageCycle é dif do "No info" ? Então, mostra x , senão : mostra y */}
+              <div className={styles.containerCard}>
+                <div className={styles.titleCardLength}>
+                  <h5>Last Period</h5>
+                  {dataPeriod.length > 0 ? (
+                    <h1>
+                      {new Date(dataPeriod[0].startDate).toLocaleDateString(
+                        "en-GB",
+                        { day: "numeric", month: "long" },
+                      )}
+                      {/* // vou ter um novo tipo de data para os dados dataPeriod[0].startDate, em que vai formatar a data em que a data terá "en-GB" como idioma e terá 2 parametros, day que é numerico e o month que é long */}
+                    </h1>
+                  ) : (
+                    <span className={styles.loading}>No info</span>
+                  )}
+                </div>
+              </div>
             </Card>
           </div>
         )}
+
+        <Cycle/>
       </section>
     </>
   );

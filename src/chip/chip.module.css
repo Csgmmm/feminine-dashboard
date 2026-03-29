@@ -1,0 +1,18 @@
+.primary {
+  background: rgb(240, 232, 255);
+  color: #7855f7;
+  border-radius: 100px;
+  padding: 2px 12px;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.secondary {
+  border: 1px solid #7855f7;
+  border-radius: 100px;
+  padding: 2px 12px;
+  font-size: 12px;
+  font-weight: 800;
+  color: #7855f7;
+}
+
