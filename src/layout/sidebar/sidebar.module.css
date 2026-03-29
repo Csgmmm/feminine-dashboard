@@ -54,7 +54,7 @@
 }
 
 @media (max-width: 768px) {
-  .nav h1 {
+  .nav h4 {
     display: none;
   }
 }
@@ -97,6 +97,7 @@
   width: 100%;
 }
 
+
 @media (max-width: 768px) {
   .buttonUpgrade {
     display: none;
@@ -104,7 +105,7 @@
 }
 .primaryButton {
   background-color: #ffffff;
-  color: #2b144e;
+  color: #0e3257;
   display: flex;
   justify-content: space-between;
 }

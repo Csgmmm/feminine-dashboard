@@ -1,8 +1,77 @@
+
+/* header */
+
+.containerHeader {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* container profile image */
+
+.containerProfile {
+  position: relative;
+}
+
+.nameIcon {
+  display: flex;
+  align-items: center;
+}
+
+.trigger {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: white;
+  border: 1px solid #eee;
+  border-radius: 14px;
+  padding: 6px 12px;
+  cursor: pointer;
+  color: #444444;
+}
+
+.triggerOpen {
+  border-radius: 14px 14px 0 0;
+  border-bottom: none;
+}
+
+.dropdown {
+  position: absolute;
+  top: 75%;
+  width: 100%;
+  background: white;
+  border: 1px solid #eee;
+  border-radius: 0 0 14px 14px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  padding: 8px;
+  gap: 4px;
+  z-index: 10;
+  min-width: 150px;
+}
+
+.dropBtn a {
+  gap: 12px;
+  display: flex;
+  align-items: center;
+  color: #697281;
+}
+
+.dropBtnLogout {
+  gap: 12px;
+  display: flex;
+  align-items: center;
+  color: #697281;
+  border-top: 1px solid #dddddd;
+  border-radius: 0;
+  margin-top: 16px;
+}
+
 /* loading da pagina */
 .loading {
   font-size: 18px;
-  color: #444444;
-  font-weight: 600;
+  color: #696969;
+  font-weight: 400;
 }
 /* main da pagina completa */
 .main {
@@ -49,7 +118,7 @@
   position: absolute;
   bottom: 0;
   right: -4px;
-  background-color: #b670e8;
+  background-color: #337aff;
   border: none;
   border-radius: 100%;
   width: 26px;
@@ -98,7 +167,7 @@
 }
 
 .icon {
-  color: blueviolet;
+  color: #337aff;
   width: 18px;
 }
 /* ---- */
@@ -158,7 +227,7 @@
 .notificationsContainer {
   width: 100%;
   display: flex;
-  gap:18px;
+  gap: 18px;
   flex-direction: column;
 }
 
@@ -176,4 +245,10 @@
   color: #7d7d7d;
   font-size: 14px;
   padding-top: 16px;
+}
+
+/* footer */
+
+.footer {
+  width: 100%;
 }

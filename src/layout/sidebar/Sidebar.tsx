@@ -51,7 +51,7 @@ function Sidebar({ isOpen, setIsOpen }: ISidebar) {
                   className={styles.button}
                 >
                   <LayoutDashboard />
-                  <h1>Dashboard</h1>
+                  <h4>Dashboard</h4>
                 </Button>
               </Link>
               <Link to={"/calendar"}>
@@ -61,7 +61,7 @@ function Sidebar({ isOpen, setIsOpen }: ISidebar) {
                   className={styles.button}
                 >
                   <Calendar1 />
-                  <h1>Calendar</h1>
+                  <h4>Calendar</h4>
                 </Button>
               </Link>
               <Link to={"/logs"}>
@@ -71,7 +71,7 @@ function Sidebar({ isOpen, setIsOpen }: ISidebar) {
                   className={styles.button}
                 >
                   <List />
-                  <h1>Logs</h1>
+                  <h4>Logs</h4>
                 </Button>
               </Link>
               <Link to={"/profile"}>
@@ -81,7 +81,7 @@ function Sidebar({ isOpen, setIsOpen }: ISidebar) {
                   className={styles.button}
                 >
                   <UserPen />
-                  <h1>Profile</h1>
+                  <h4>Profile</h4>
                 </Button>
               </Link>
             </nav>

@@ -5,9 +5,18 @@ import type { IUsers } from "../../types/types";
 import { getUser, updateUserEmail } from "../../api/usersService";
 import Card from "../../card/Card";
 import Button from "../../button/Button";
-import { Bell, Camera, Settings } from "lucide-react";
+import {
+  Bell,
+  Camera,
+  ChevronDown,
+  LogOut,
+  Settings,
+  UserPen,
+} from "lucide-react";
 import { updateUserName } from "../../api/usersService";
 import Toggle from "../../toggle/Toggle";
+import { Link, useNavigate } from "react-router-dom";
+import supabase from "../../api/supabaseClient";
 
 function Profile() {
   const { user } = useAuth(); //Aqui, vai ao AuthContext buscar o User para saber quem esta logged in
@@ -16,6 +25,8 @@ function Profile() {
   const [newEmail, setNewEmail] = useState("");
   const [periodAlert, setPeriodAlert] = useState(false);
   const [pmsAlert, setPmsAlert] = useState(false);
+  const navigate = useNavigate();
+  const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
     getUser(user!.id).then((data) => {
@@ -33,6 +44,12 @@ function Profile() {
     setNewName(""); //após guardar, dá reset e fica um string vazio
     setNewEmail("");
   };
+
+  const logout = async () => {
+    await supabase.auth.signOut();
+    navigate("/login");
+  };
+
   if (!profile) return <span className={styles.loading}>Loading...</span>; //enquanto nao houver dados, aparece loading
 
   //para a CTA disabled
@@ -143,9 +160,17 @@ function Profile() {
           </span>
           <span className={styles.dataContainer}>
             <Button variant="primary">Export data as PDF</Button>
-            <p className={styles.note}>You can take this file to a medical appointment</p>
+            <p className={styles.note}>
+              You can take this file to a medical appointment
+            </p>
           </span>
         </Card>
+        <div className={styles.footer}>
+          <Button variant="secondary" onClick={logout}>
+            <LogOut width={18} />
+            Logout
+          </Button>
+        </div>
       </div>
     </>
   );
