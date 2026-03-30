@@ -8,14 +8,12 @@ import Button from "../../button/Button";
 import {
   Bell,
   Camera,
-  ChevronDown,
   LogOut,
   Settings,
-  UserPen,
 } from "lucide-react";
 import { updateUserName } from "../../api/usersService";
 import Toggle from "../../toggle/Toggle";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import supabase from "../../api/supabaseClient";
 
 function Profile() {
@@ -26,7 +24,6 @@ function Profile() {
   const [periodAlert, setPeriodAlert] = useState(false);
   const [pmsAlert, setPmsAlert] = useState(false);
   const navigate = useNavigate();
-  const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
     getUser(user!.id).then((data) => {

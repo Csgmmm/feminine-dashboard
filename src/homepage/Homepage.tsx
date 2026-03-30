@@ -1,25 +1,24 @@
-import { useState, useEffect } from "react"; 
+import { useState, useEffect } from "react";
 import Card from "../card/Card";
 import styles from "./homepage.module.css";
 import supabase from "../api/supabaseClient";
 import type { IUsers } from "../types/types";
 import { useAuth } from "../context/AuthContext";
 import { getUser } from "../api/usersService";
-import { ArrowRight, ChevronDown, LogOut, UserPen } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import Button from "../button/Button";
-import { useNavigate } from "react-router-dom";
 import EmptyState from "../emptyState/EmptyState";
 import Cycle from "../cycle/Cycle";
+import CalendarElement from "../calendarElement/CalendarElement";
+import ProfileDropdown from "../profile/ProfileDropdown";
 
 function Homepage() {
   const { user } = useAuth();
   const [dataPeriod, setDataPeriod] = useState<any[]>([]);
   const [error, setError] = useState<string | null>(null);
   const [profile, setProfile] = useState<IUsers | null>(null);
-  const [isOpen, setIsOpen] = useState(false);
   const [dataLogs, setDataLogs] = useState<any[]>([]);
-  const navigate = useNavigate();
 
   const averageCycle =
     dataPeriod.length > 0
@@ -75,10 +74,6 @@ function Homepage() {
     });
   }, [user]);
 
-  const logout = async () => {
-    await supabase.auth.signOut();
-    navigate("/login");
-  };
   if (!profile) return <span className={styles.loading}>Loading...</span>;
 
   return (
@@ -93,40 +88,7 @@ function Homepage() {
             </p>
           </span>
 
-          <div className={styles.containerProfile}>
-            <button
-              className={`${styles.trigger} ${isOpen ? styles.triggerOpen : ""}`}
-              onClick={() => setIsOpen((previous) => !previous)}
-            >
-              {/* ao clicar, ele vai chamar o setIsOpen para atualizar o estado anterior do isOpen */}
-              <img
-                className={styles.img}
-                src={profile.avatar}
-                alt={profile.name}
-              />
-              <span className={styles.nameIcon}>
-                <p className={styles.name}>{profile.name}</p>
-                <ChevronDown />
-              </span>
-            </button>
-            {isOpen && (
-              <div className={styles.dropdown}>
-                <Button variant="tertiary" className={styles.dropBtn}>
-                  <Link to="/profile">
-                    <UserPen width={18} /> Profile
-                  </Link>
-                </Button>
-                <Button
-                  variant="tertiary"
-                  onClick={logout}
-                  className={styles.dropBtnLogout}
-                >
-                  <LogOut width={18} />
-                  Logout
-                </Button>
-              </div>
-            )}
-          </div>
+          <ProfileDropdown />
         </div>
 
         {error && <p>Error: {error}</p>}
@@ -146,7 +108,7 @@ function Homepage() {
             <Card>
               <div className={styles.containerCard}>
                 <div className={styles.titleCardLength}>
-                  <h5>Last Cycle</h5>
+                  <h5 className={styles.titleCard}>Last Cycle</h5>
                   {dataPeriod.length > 0 ? ( //a duração do dataPeriod é maior que 0? entao, mostra o <p> que é o item mais recente que esta na lenght</p>
                     <h1>{dataPeriod[0].length} days</h1>
                   ) : (
@@ -168,7 +130,7 @@ function Homepage() {
             <Card>
               <div className={styles.containerCard}>
                 <div className={styles.titleCardLength}>
-                  <h5>Logs</h5>
+                  <h5 className={styles.titleCard}>Logs</h5>
                   {dataLogs.length > 0 ? (
                     <h1>{dataLogs.length}</h1>
                   ) : (
@@ -188,7 +150,7 @@ function Homepage() {
             <Card>
               <div className={styles.containerCard}>
                 <div className={styles.titleCardLength}>
-                  <h5>Average Cycle</h5>
+                  <h5 className={styles.titleCard}>Average Cycle</h5>
                   <h1>
                     {averageCycle !== "No info" ? (
                       <>{averageCycle} days</>
@@ -204,7 +166,7 @@ function Homepage() {
             <Card>
               <div className={styles.containerCard}>
                 <div className={styles.titleCardLength}>
-                  <h5>Last Period</h5>
+                  <h5 className={styles.titleCard}>Last Period</h5>
                   {dataPeriod.length > 0 ? (
                     <h1>
                       {new Date(dataPeriod[0].startDate).toLocaleDateString(
@@ -221,8 +183,10 @@ function Homepage() {
             </Card>
           </div>
         )}
-
-        <Cycle/>
+        <div className={styles.containerCycleCalendar}>
+          <Cycle />
+          <CalendarElement />
+        </div>
       </section>
     </>
   );

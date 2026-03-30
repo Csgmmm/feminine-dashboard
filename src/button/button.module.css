@@ -1,4 +1,4 @@
-button {
+.button {
   font-family:
     ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
     "Segoe UI Symbol", "Noto Color Emoji";
@@ -66,10 +66,6 @@ button {
   color: #20458b;
   font-weight: bold;
   cursor: default;
-}
-
-a {
-  text-decoration: none;
 }
 
 .tertiary {

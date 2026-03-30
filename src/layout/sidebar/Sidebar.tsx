@@ -2,13 +2,12 @@ import { Link, useLocation } from "react-router-dom";
 import styles from "./sidebar.module.css";
 import Logo from "../../logo/Logo";
 import Button from "../../button/Button";
-import { useNavigate } from "react-router-dom";
-import supabase from "../../api/supabaseClient";
+
+
 import {
   Calendar1,
   LayoutDashboard,
   List,
-  LogOut,
   Menu,
   Star,
   UserPen,
@@ -23,13 +22,6 @@ interface ISidebar {
 function Sidebar({ isOpen, setIsOpen }: ISidebar) {
   const location = useLocation();
 
-  const navigate = useNavigate();
-
-  const handleLogout = async () => {
-    await supabase.auth.signOut();
-    navigate("/login"); //Cria uma função assíncrona que espera que o Supabase
-    // termine o logout do utilizador e depois redireciona para a página de login.
-  };
   return (
     <>
       <aside
@@ -103,7 +95,7 @@ function Sidebar({ isOpen, setIsOpen }: ISidebar) {
             </nav>
           </>
         )}
-        
+
         <Button
           className={styles.hamburguer}
           onClick={() => setIsOpen(!isOpen)}

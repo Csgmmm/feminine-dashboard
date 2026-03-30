@@ -6,9 +6,6 @@ interface ILayout {
   children: ReactNode;
 }
 
-
-
-
 const Layout = ({ children }: ILayout) => {
   const [isOpen, setIsOpen] = useState(false);
   return (

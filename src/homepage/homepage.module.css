@@ -36,7 +36,7 @@
 }
 
 .title {
-  color: #337aff;
+  color: #556bf7;
   padding-bottom: 16px;
 }
 
@@ -133,6 +133,11 @@
   }
 }
 
+.titleCard {
+  color: #898989;
+  font-weight: 400;
+}
+
 .infoTextDays {
   font-size: 14px;
 }
@@ -150,4 +155,20 @@
 .containerCard {
   display: flex;
   justify-content: space-between;
+}
+
+/* Cycle and calendar container */
+
+.containerCycleCalendar {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  margin-top: 30px;
+}
+
+@media (max-width: 768px) {
+  .containerCycleCalendar {
+    display: grid;
+    gap: 18px;
+    grid-template-columns: repeat(1, 1fr);
+  }
 }
