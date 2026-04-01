@@ -56,7 +56,7 @@
   align-items: center;
   flex-direction: column;
   background: #fee9f0;
-  background: linear-gradient(144deg, rgb(207, 217, 255) 0%, #9ad7ff 100%);
+
 }
 
 input {
@@ -96,7 +96,7 @@ input {
 }
 
 input:focus {
-  border: 1.5px solid #558ef7;
+  border: 1.5px solid #cd6b88;
 }
 
 .buttonLogIn {

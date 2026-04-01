@@ -1,6 +1,6 @@
 .primary {
-  background: rgb(232, 232, 255);
-  color: #5575f7;
+  background: rgb(255, 232, 243);
+  color: #ee7ea5;
   border-radius: 100px;
   padding: 2px 12px;
   font-size: 12px;
@@ -8,11 +8,11 @@
 }
 
 .secondary {
-  border: 1px solid #5575f7;
+  border: 1px solid #ee7ea5;
   border-radius: 100px;
   padding: 2px 12px;
   font-size: 12px;
   font-weight: 800;
-  color: #5575f7;
+  color: #ee7ea5;
 }
 

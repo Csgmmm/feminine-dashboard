@@ -8,7 +8,7 @@ import Calendar from "react-calendar/src/Calendar.js";
 function CalendarElement() {
   const { user } = useAuth();
   const [logs, setLogs] = useState<any[]>([]);
-  const [cycles, setCycles] = useState<any[]>([]);
+  const [selectedDate, setSelectedDate] = useState<Date | null>(null);
 
   const handleLogs = async () => {
     const { data } = await supabase
@@ -18,17 +18,8 @@ function CalendarElement() {
     if (data) setLogs(data); // guarda os dados no estado setlogs
   };
 
-  const handleCycles = async () => {
-    const { data } = await supabase
-      .from("cycles")
-      .select("*")
-      .eq("user_id", user!.id);
-    if (data) setCycles(data);
-  };
-
   useEffect(() => {
     handleLogs(); // quando o componente carregar vai buscar os logs
-    handleCycles(); // e os cycles
   }, [user]);
 
   const getDayIntensity = (date: Date) => {
@@ -46,6 +37,15 @@ function CalendarElement() {
     <div className={styles.container}>
       <Calendar
         className={styles.calendar}
+        value={selectedDate}
+        onClickDay={(date) => {
+          if (selectedDate?.toDateString() === date.toDateString()) {
+            // converte a data para texto para fazer ===
+            setSelectedDate(null);
+          } else {
+            setSelectedDate(date);
+          }
+        }}
         tileClassName={({ date }) => {
           // para cada dia do calendário:
           const intensity = getDayIntensity(date); // vai buscar a intensidade desse dia
@@ -57,6 +57,17 @@ function CalendarElement() {
           return null; //senão houver intensidade não aplica classe
         }}
       />
+      <div className={styles.legendContainer}>
+        <div className={styles.title}>
+          <h5>Intensity</h5>
+        </div>
+        <div className={styles.legend}>
+          <p className={styles.heavy}>Heavy</p>
+          <p className={styles.medium}>Medium</p>
+          <p className={styles.light}>Light</p>
+          <p className={styles.none}>None</p>
+        </div>
+      </div>
     </div>
     //{ universo JSX }, ({ date }) é o destructuring do objeto date. (objeto) {destructuring}
   );

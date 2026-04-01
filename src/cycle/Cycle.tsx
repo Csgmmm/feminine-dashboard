@@ -57,7 +57,7 @@ function Cycle() {
               cy="50"
               r="40"
               fill="#ffffff"
-              stroke="#d9e6ff"
+              stroke="#e8e8e8"
               strokeWidth="8"
             />
 
@@ -66,7 +66,7 @@ function Cycle() {
               cy="50"
               r="40"
               fill="none"
-              stroke="#9da7ff"
+              stroke="#ff9daf"
               strokeWidth="8"
               strokeDasharray={`${progress * 2.51} 251`}
               strokeLinecap="round"

@@ -35,7 +35,7 @@ function Homepage() {
 
   const handleDataLogs = async () => {
     const { data, error: supabaseError } = await supabase
-      .from("logs") //vai buscar ao table editor 
+      .from("logs") //vai buscar ao table editor
       .select("*") //vai buscar todos
       .eq("user_id", user!.id); //tem de ser igual ao user_id, e nunca será null
 
@@ -185,7 +185,11 @@ function Homepage() {
         )}
         <div className={styles.containerCycleCalendar}>
           <Cycle />
-          <CalendarElement />
+          <div className={styles.calendarContainer}>
+            <Card>
+              <CalendarElement />
+            </Card>
+          </div>
         </div>
       </section>
     </>

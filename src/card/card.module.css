@@ -16,11 +16,12 @@
 }
 
 .card.upgradeCard {
-  background: linear-gradient(144deg, rgb(142, 127, 255) 0%, #558ef7 100%);
+  background: linear-gradient(144deg, rgb(245, 168, 186) 0%, #d7637b 100%);
   height: fit-content;
   padding: 18px;
   margin-bottom: 1.5rem;
   overflow-y: auto;
+  border: 1px solid #ff5f7c;
 }
 
 @media (max-width: 768px) {

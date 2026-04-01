@@ -1,6 +1,6 @@
 
 //Logs
-export type Pain = "cramps" | "headache" | "lower_back" | "bloating" | "breast" | "none";
+export type Pain = "cramps" | "headache" | "breast" | "none";
 export type Mood = "sensitive" | "energetic" | "calm" | "happy" | "irritable" | "anxious";
 export type Cravings = "chocolate" | "sugar" | "carbs" | "salt" | "none";
 export type Energy = "low" | "medium" | "high";
@@ -9,14 +9,11 @@ export type Hair = "oily" | "dry" | "normal";
 
 export type Bleeding = {
     intensity?: "none" | "light" | "medium" | "spotting" | "heavy";
-    spotting?: "none" | "light" | "medium" | "heavy";
 }
 
 export type Activity = {
     sleep_hours?: number;
     exercise?: boolean;
-    sexual_activity?: boolean;
-    sex_life?: "none" | "low_drive" | "protected";
 }
 
 export interface ILogs {

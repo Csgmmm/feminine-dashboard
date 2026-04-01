@@ -1,44 +1,121 @@
 .container {
-  padding: 1.5rem;
+  padding: 0.75rem;
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 1200px) {
+  .container {
+    padding: 1rem;
+  }
 }
 
 .calendar {
   border: none;
   border-radius: 16px;
   font-family: inherit;
+  width: 100%;
 }
 
 .periodDay {
-  background-color: #fda4af;
   color: white;
-  border-radius: 100%;
+  border-radius: 10px;
 }
 
+/* Intensidade */
 .heavy {
-  background-color: #8b6ba3;
+  background-color: #ff3939;
   color: white;
-  border-radius: 100%;
+  border-radius: 10px;
 }
 
 .medium {
-  background-color: #45de1f;
+  background-color: #ff6969;
   color: white;
-  border-radius: 100%;
+  border-radius: 10px;
 }
 
 .light {
-  background-color: #839750;
+  background-color: #ffaaaa;
   color: white;
-  border-radius: 100%;
-}
-
-.spotting {
-  background-color: #fdeba4;
-  color: white;
-  border-radius: 100%;
+  border-radius: 10px;
 }
 
 .noneDay {
-  background-color: #e5e4fc;
-  border-radius: 100%;
+  background-color: #ffe8ec;
+  color: #ff3939;
+  border-radius: 10px;
+}
+
+/* Tabela */
+
+/* grid */
+:global(.react-calendar__month-view__days) {
+  display: grid !important;
+  justify-content: center;
+  grid-template-columns: repeat(7, 1fr) !important;
+  justify-items: center;
+  gap: 10px;
+}
+
+/* celula */
+:global(.react-calendar__month-view__days__day) {
+  height: 40px;
+  border-radius: 10px;
+  display: grid;
+  width: 100%;
+}
+
+:global(.react-calendar__tile:hover) {
+  background-color: #dfdfdf;
+  border-radius: 10px;
+}
+
+:global(.react-calendar__tile--now) {
+  background-color: #ffdee8;
+  color: #d77e9a;
+  border-radius: 10px;
+  text-align: center;
+}
+
+:global(.react-calendar .react-calendar__tile--now:hover) {
+  background-color: #f3e8ff;
+  border-radius: 10px;
+}
+
+:global(.react-calendar__tile--active) {
+  background-color: #d77e9a;
+  border-radius: 10px;
+}
+
+@media (max-width: 1200px) {
+  .container {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+/* Legenda */
+
+.legendContainer {
+  padding: 16px 0px 0px;
+  border-top: 1px solid rgb(226, 226, 226);
+  margin-top: 40px;
+}
+
+.legend {
+  display: flex;
+  gap: 8px;
+}
+.legend p {
+  margin: 12px 0px 12px 0px;
+  width: fit-content;
+  padding: 4px 8px;
+  font-size: 14px;
+}
+
+.none {
+  color: #c15887;
+  background-color: #ffe8ec;
+  border-radius: 10px;
 }
