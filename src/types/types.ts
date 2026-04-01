@@ -9,14 +9,12 @@ export type Hair = "oily" | "dry" | "normal";
 
 export type Bleeding = {
     intensity?: "none" | "light" | "medium" | "spotting" | "heavy";
-    color?: string;
-    clots?: boolean;
     spotting?: "none" | "light" | "medium" | "heavy";
 }
 
 export type Activity = {
     sleep_hours?: number;
-    exercise?: string;
+    exercise?: boolean;
     sexual_activity?: boolean;
     sex_life?: "none" | "low_drive" | "protected";
 }

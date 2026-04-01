@@ -7,44 +7,59 @@ import Calendar from "react-calendar/src/Calendar.js";
 
 function CalendarElement() {
   const { user } = useAuth();
-  const [dataPeriod, setDataPeriod] = useState<any[]>([]);
+  const [logs, setLogs] = useState<any[]>([]);
+  const [cycles, setCycles] = useState<any[]>([]);
 
-  const handleDataPeriod = async () => {
+  const handleLogs = async () => {
+    const { data } = await supabase
+      .from("logs")
+      .select("*")
+      .eq("user_id", user!.id);
+    if (data) setLogs(data); // guarda os dados no estado setlogs
+  };
+
+  const handleCycles = async () => {
     const { data } = await supabase
       .from("cycles")
       .select("*")
-      .eq("user_id", user!.id)
-      .order("startDate", { ascending: false });
-
-    if (data) setDataPeriod(data);
+      .eq("user_id", user!.id);
+    if (data) setCycles(data);
   };
 
   useEffect(() => {
-    handleDataPeriod();
+    handleLogs(); // quando o componente carregar vai buscar os logs
+    handleCycles(); // e os cycles
   }, [user]);
 
-  const isPeriodDay = (date: Date) => {
-    //função que recebe uma data
-    return dataPeriod.some((cycle) => {
-      //percorre os itens do dataPeriod e verifica de pelo menos um item satisfaz as condições:
-      const start = new Date(cycle.startDatePeriod); //converte a string da base de dados num formato Date
-      const end = new Date(cycle.endDatePeriod); //igual
-      return date >= start && date <= end; //retorna a data maior ou igual que a o start e menor ou igual que o end
+  const getDayIntensity = (date: Date) => {
+    const log = logs.find((log) => {
+      // percorre os logs e por cada log, procura o primeiro que:
+      if (!log.startDatePeriod || !log.endDatePeriod) return false; // ignora logs sem datas
+      const start = new Date(log.startDatePeriod); // converte a data de início de um formato string para um formato Date
+      const end = new Date(log.endDatePeriod); //igual
+      return date >= start && date <= end; //retornar os dias que forem maior ou iguais que o start e menores ou iguais que o end
     });
+    return log?.intensity || null; //no final de tudo, se houver um log, então mostra a intensidade
   };
+
   return (
     <div className={styles.container}>
-      <Calendar className={styles.calendar}
+      <Calendar
+        className={styles.calendar}
         tileClassName={({ date }) => {
-          //para cada quadrado do calendar, o Calendar executa a função, pegando na data que acabou de criar e colocando no parametro {date}:
-          if (isPeriodDay(date)) return styles.periodDay; //depois pega nesse {date} do calendar e envia como argumento para a função isPeriodDay(date) e se a data estiver dentro ciclo (função que criei anteriormente), retorna com o estilo
-          return null;
+          // para cada dia do calendário:
+          const intensity = getDayIntensity(date); // vai buscar a intensidade desse dia
+          if (intensity === "heavy") return styles.heavy;
+          if (intensity === "medium") return styles.medium;
+          if (intensity === "light") return styles.light;
+          if (intensity === "spotting") return styles.spotting;
+          if (intensity === "none") return styles.noneDay;
+          return null; //senão houver intensidade não aplica classe
         }}
       />
     </div>
+    //{ universo JSX }, ({ date }) é o destructuring do objeto date. (objeto) {destructuring}
   );
-  //titleClassName - é a class para o componente Calendar do React
-  //{({ date }) - o primeiro {} é o universo JS. o segundo () é a arrow function. o terceiro {} é o destructuring do date
 }
 
 export default CalendarElement;

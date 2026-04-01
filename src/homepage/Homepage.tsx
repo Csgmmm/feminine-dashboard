@@ -35,7 +35,7 @@ function Homepage() {
 
   const handleDataLogs = async () => {
     const { data, error: supabaseError } = await supabase
-      .from("logs") //vai buscar ao table editor Cycles
+      .from("logs") //vai buscar ao table editor 
       .select("*") //vai buscar todos
       .eq("user_id", user!.id); //tem de ser igual ao user_id, e nunca será null
 

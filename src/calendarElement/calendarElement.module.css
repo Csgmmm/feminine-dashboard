@@ -1,10 +1,44 @@
-.periodDay {
-  background-color: #c66d9d;
-  color: rgb(40, 8, 8);
-  border-radius: 100% 
-}
-
 .container {
   padding: 1.5rem;
 }
 
+.calendar {
+  border: none;
+  border-radius: 16px;
+  font-family: inherit;
+}
+
+.periodDay {
+  background-color: #fda4af;
+  color: white;
+  border-radius: 100%;
+}
+
+.heavy {
+  background-color: #8b6ba3;
+  color: white;
+  border-radius: 100%;
+}
+
+.medium {
+  background-color: #45de1f;
+  color: white;
+  border-radius: 100%;
+}
+
+.light {
+  background-color: #839750;
+  color: white;
+  border-radius: 100%;
+}
+
+.spotting {
+  background-color: #fdeba4;
+  color: white;
+  border-radius: 100%;
+}
+
+.noneDay {
+  background-color: #e5e4fc;
+  border-radius: 100%;
+}
