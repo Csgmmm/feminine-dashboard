@@ -184,7 +184,10 @@ function Homepage() {
           </div>
         )}
         <div className={styles.containerCycleCalendar}>
-          <Cycle />
+          <div className={styles.cycle}>
+            <Cycle />
+            <Button variant="primary">Log your symptoms</Button>
+          </div>
           <div className={styles.calendarContainer}>
             <Card>
               <CalendarElement />

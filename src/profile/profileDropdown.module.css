@@ -1,6 +1,5 @@
 .containerProfile {
   position: relative;
-
 }
 
 .img {
@@ -33,7 +32,6 @@
   padding: 6px 12px;
   cursor: pointer;
   width: 280px;
-  
 }
 
 .triggerOpen {
@@ -71,4 +69,22 @@
   border-top: 1px solid #dddddd;
   border-radius: 0;
   margin-top: 16px;
+}
+
+@media (max-width: 1200px) {
+  .name {
+    display: none;
+  }
+
+  .trigger {
+    width: fit-content;
+  }
+
+  .img {
+    width: 44px;
+    height: 44px;
+    min-width: 32px;
+    object-fit: cover;
+    border-radius: 100%;
+  }
 }

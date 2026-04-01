@@ -51,7 +51,7 @@ function Cycle() {
       {error && <p>Error: {error}</p>}
       {
         <div className={styles.cycleCircle}>
-          <svg viewBox="0 0 100 100" width="350" height="350">
+          <svg viewBox="0 0 100 100" width="430" height="430">
             <circle
               cx="50"
               cy="50"
@@ -75,7 +75,7 @@ function Cycle() {
           </svg>
           <div className={styles.cycleText}>
             <span className={styles.today}>TODAY</span>
-            <h2>Day {daysOfCycle}</h2>
+            <h1>Day {daysOfCycle}</h1>
             <span>
               <Chip variant="primary">
                 Day {daysOfCycle} of {cycleLength}
