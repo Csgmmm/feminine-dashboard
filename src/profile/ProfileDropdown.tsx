@@ -42,17 +42,20 @@ function Profile() {
         <div className={styles.dropdown}>
           <Button variant="tertiary" className={styles.dropBtn}>
             <Link to="/profile">
-              <UserPen width={18} /> Profile
+              <UserPen width={18} />{" "}
+              <span className={styles.dropBtnText}>Profile</span>
             </Link>
           </Button>
-          <Button
-            variant="tertiary"
-            onClick={logout}
-            className={styles.dropBtnLogout}
-          >
-            <LogOut width={18} />
-            Logout
-          </Button>
+          <span className={styles.btnLogout}>
+            <Button
+              variant="tertiary"
+              onClick={logout}
+              className={styles.dropBtnLogout}
+            >
+              <LogOut width={18} />
+              <span className={styles.dropBtnText}>Logout</span>
+            </Button>
+          </span>
         </div>
       )}
     </div>

@@ -1,0 +1,11 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.closeButton {
+  background-color: transparent;
+  border: none;
+  color: #cd6b88;
+  cursor: pointer;
+}

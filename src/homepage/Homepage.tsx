@@ -12,6 +12,7 @@ import EmptyState from "../emptyState/EmptyState";
 import Cycle from "../cycle/Cycle";
 import CalendarElement from "../calendarElement/CalendarElement";
 import ProfileDropdown from "../profile/ProfileDropdown";
+import ModalLogs from "../modal/ModalLogs";
 
 function Homepage() {
   const { user } = useAuth();
@@ -19,6 +20,7 @@ function Homepage() {
   const [error, setError] = useState<string | null>(null);
   const [profile, setProfile] = useState<IUsers | null>(null);
   const [dataLogs, setDataLogs] = useState<any[]>([]);
+  const [isOpen, setIsOpen] = useState(false);
 
   const averageCycle =
     dataPeriod.length > 0
@@ -186,7 +188,26 @@ function Homepage() {
         <div className={styles.containerCycleCalendar}>
           <div className={styles.cycle}>
             <Cycle />
-            <Button variant="primary">Log your symptoms</Button>
+
+            {/* se clicar neste botão */}
+            <Button variant="primary" onClick={() => setIsOpen(!isOpen)}>
+              Log your symptoms
+            </Button>
+
+            {/* Aparece isto */}
+            {isOpen && (
+              <>
+                <div
+                  className={styles.overlay}
+                  onClick={() => setIsOpen(false)}
+                />
+                {/* Ao clicar na zona do overlay, a modal fecha */}
+                <Card className={styles.openModal}>
+                  <ModalLogs onClose={() => setIsOpen(false)} />
+                  {/* ao clicar no x, fecha. No componente, tenho o onClick={onClose}, que faz ligação com este setIsOpen(false) */}
+                </Card>
+              </>
+            )}
           </div>
           <div className={styles.calendarContainer}>
             <Card>

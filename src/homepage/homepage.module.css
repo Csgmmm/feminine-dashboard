@@ -199,3 +199,26 @@
     margin-bottom: 40px;
   }
 }
+
+/* modal */
+
+.openModal {
+  position: fixed; /* Importante para a modal flutuar sobre o overlay */
+  width: 500px;
+  height: 500px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 999;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5); /* Preto com 50% de transparência */
+  z-index: 998; 
+  backdrop-filter: blur(2px);
+}
