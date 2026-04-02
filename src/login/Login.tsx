@@ -15,20 +15,20 @@ const Login = () => {
   const navigate = useNavigate();
 
   const handleLogin = async () => {
-  const data = await supabase.auth.signInWithPassword({ email, password });
-  const error = data.error;
+    const data = await supabase.auth.signInWithPassword({ email, password });
+    const error = data.error;
 
-  if (error) {
-    // Ignorar aviso de password fraca — não impede o login
-    if (error.code === "weak_password") {
-      navigate("/homepage");
+    if (error) {
+      if (error.code === "weak_password") {
+        //mesmo que a password seja fraca, ele vai permitir o login
+        navigate("/homepage");
+      } else {
+        setError("Incorrect email or password.");
+      }
     } else {
-      setError("Incorrect email or password.");
+      navigate("/homepage");
     }
-  } else {
-    navigate("/homepage");
-  }
-};
+  };
   return (
     <div className={styles.loginPage}>
       <Card className={styles.Card}>

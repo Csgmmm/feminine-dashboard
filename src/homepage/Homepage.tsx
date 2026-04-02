@@ -69,12 +69,10 @@ function Homepage() {
   };
 
   useEffect(() => {
-    getUser(user!.id).then((data) => {
-      setProfile(data);
-      handleDataLogs();
-      handleDataPeriod();
-    });
-  }, [user]);
+  getUser(user!.id).then((data) => setProfile(data));
+  handleDataLogs();
+  handleDataPeriod();
+}, [user]);
 
   // Bloquear scroll quando a modal está aberta
   useEffect(() => {
