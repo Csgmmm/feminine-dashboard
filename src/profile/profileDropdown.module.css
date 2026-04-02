@@ -5,7 +5,6 @@
 .img {
   width: 56px;
   height: 56px;
-  min-width: 32px;
   object-fit: cover;
   border-radius: 100%;
 }
@@ -14,7 +13,6 @@
   .img {
     width: 44px;
     height: 44px;
-    min-width: 32px;
     object-fit: cover;
     border-radius: 100%;
   }
@@ -24,7 +22,7 @@
   display: flex;
   align-items: center;
   color: #cd6b88;
-  gap: 12px;
+  gap: 50px;
 }
 
 .name {
@@ -97,7 +95,7 @@
 
 .dropBtnLogout {
   border-radius: 8px;
-    width: 100%;
+  width: 100%;
 }
 
 @media (max-width: 762px) {
@@ -109,5 +107,5 @@
 .btnLogout {
   border-top: 1px solid #dddddd;
   margin-top: 16px;
-padding-top: 16px;
+  padding-top: 16px;
 }

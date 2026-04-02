@@ -76,6 +76,11 @@ function Homepage() {
     });
   }, [user]);
 
+  // Bloquear scroll quando a modal está aberta
+  useEffect(() => {
+    document.body.style.overflow = isOpen ? "hidden" : "unset";
+  }, [isOpen]);
+
   if (!profile) return <span className={styles.loading}>Loading...</span>;
 
   return (
@@ -103,118 +108,117 @@ function Homepage() {
               <h4>Nothing here yet.</h4>
               <small>Log your cycle to see your data here</small>
             </span>
-            <Button variant="primary">Start logging</Button>
+            <Button variant="primary" onClick={() => setIsOpen(true)}>Start logging</Button>
           </div>
         ) : (
-          <div className={styles.grid}>
-            <Card>
-              <div className={styles.containerCard}>
-                <div className={styles.titleCardLength}>
-                  <h5 className={styles.titleCard}>Last Cycle</h5>
-                  {dataPeriod.length > 0 ? ( //a duração do dataPeriod é maior que 0? entao, mostra o <p> que é o item mais recente que esta na lenght</p>
-                    <h1>{dataPeriod[0].length} days</h1>
-                  ) : (
-                    // senao, mostra este <p></p>
-                    <span className={styles.loading}>No info</span>
-                  )}
+          /* O conteúdo abaixo só aparece se houver dados */
+          <>
+            <div className={styles.grid}>
+              <Card>
+                <div className={styles.containerCard}>
+                  <div className={styles.titleCardLength}>
+                    <h5 className={styles.titleCard}>Last Cycle</h5>
+                    {dataPeriod.length > 0 ? ( //a duração do dataPeriod é maior que 0? entao, mostra o <p> que é o item mais recente que esta na lenght</p>
+                      <h1>{dataPeriod[0].length} days</h1>
+                    ) : (
+                      // senao, mostra este <p></p>
+                      <span className={styles.loading}>No info</span>
+                    )}
+                  </div>
+
+                  <Button variant="link">
+                    <Link to={"/calendar"}>
+                      <span className={styles.linkIcon}>
+                        <ArrowRight />
+                      </span>
+                    </Link>
+                  </Button>
                 </div>
+              </Card>
 
-                <Button variant="link">
-                  <Link to={"/calendar"}>
-                    <span className={styles.linkIcon}>
-                      <ArrowRight />
-                    </span>
-                  </Link>
-                </Button>
-              </div>
-            </Card>
-
-            <Card>
-              <div className={styles.containerCard}>
-                <div className={styles.titleCardLength}>
-                  <h5 className={styles.titleCard}>Logs</h5>
-                  {dataLogs.length > 0 ? (
-                    <h1>{dataLogs.length}</h1>
-                  ) : (
-                    <span className={styles.loading}>No info</span>
-                  )}
-                </div>
-                <Button variant="link">
-                  <Link to={"/logs"}>
-                    <span className={styles.linkIcon}>
-                      <ArrowRight />
-                    </span>
-                  </Link>
-                </Button>
-              </div>
-            </Card>
-
-            <Card>
-              <div className={styles.containerCard}>
-                <div className={styles.titleCardLength}>
-                  <h5 className={styles.titleCard}>Average Cycle</h5>
-                  <h1>
-                    {averageCycle !== "No info" ? (
-                      <>{averageCycle} days</>
+              <Card>
+                <div className={styles.containerCard}>
+                  <div className={styles.titleCardLength}>
+                    <h5 className={styles.titleCard}>Logs</h5>
+                    {dataLogs.length > 0 ? (
+                      <h1>{dataLogs.length}</h1>
                     ) : (
                       <span className={styles.loading}>No info</span>
                     )}
-                  </h1>
-                  {/* o averageCycle é dif do "No info" ? Então, mostra x , senão : mostra y */}
+                  </div>
+                  <Button variant="link">
+                    <Link to={"/logs"}>
+                      <span className={styles.linkIcon}>
+                        <ArrowRight />
+                      </span>
+                    </Link>
+                  </Button>
                 </div>
-              </div>
-            </Card>
+              </Card>
 
-            <Card>
-              <div className={styles.containerCard}>
-                <div className={styles.titleCardLength}>
-                  <h5 className={styles.titleCard}>Last Period</h5>
-                  {dataPeriod.length > 0 ? (
+              <Card>
+                <div className={styles.containerCard}>
+                  <div className={styles.titleCardLength}>
+                    <h5 className={styles.titleCard}>Average Cycle</h5>
                     <h1>
-                      {new Date(dataPeriod[0].startDate).toLocaleDateString(
-                        "en-GB",
-                        { day: "numeric", month: "long" },
+                      {averageCycle !== "No info" ? (
+                        <>{averageCycle} days</>
+                      ) : (
+                        <span className={styles.loading}>No info</span>
                       )}
-                      {/* // vou ter um novo tipo de data para os dados dataPeriod[0].startDate, em que vai formatar a data em que a data terá "en-GB" como idioma e terá 2 parametros, day que é numerico e o month que é long */}
                     </h1>
-                  ) : (
-                    <span className={styles.loading}>No info</span>
-                  )}
+                    {/* o averageCycle é dif do "No info" ? Então, mostra x , senão : mostra y */}
+                  </div>
                 </div>
+              </Card>
+
+              <Card>
+                <div className={styles.containerCard}>
+                  <div className={styles.titleCardLength}>
+                    <h5 className={styles.titleCard}>Last Period</h5>
+                    {dataPeriod.length > 0 ? (
+                      <h1>
+                        {new Date(dataPeriod[0].startDate).toLocaleDateString(
+                          "en-GB",
+                          { day: "numeric", month: "long" },
+                        )}
+                        {/* // vou ter um novo tipo de data para os dados dataPeriod[0].startDate, em que vai formatar a data em que a data terá "en-GB" como idioma e terá 2 parametros, day que é numerico e o month que é long */}
+                      </h1>
+                    ) : (
+                      <span className={styles.loading}>No info</span>
+                    )}
+                  </div>
+                </div>
+              </Card>
+            </div>
+
+            <div className={styles.containerCycleCalendar}>
+              <div className={styles.cycle}>
+                <Cycle />
+
+                {/* se clicar neste botão */}
+                <Button variant="primary" onClick={() => setIsOpen(true)}>
+                  Log your symptoms
+                </Button>
               </div>
-            </Card>
-          </div>
-        )}
-        <div className={styles.containerCycleCalendar}>
-          <div className={styles.cycle}>
-            <Cycle />
-
-            {/* se clicar neste botão */}
-            <Button variant="primary" onClick={() => setIsOpen(!isOpen)}>
-              Log your symptoms
-            </Button>
-
-            {/* Aparece isto */}
-            {isOpen && (
-              <>
-                <div
-                  className={styles.overlay}
-                  onClick={() => setIsOpen(false)}
-                />
-                {/* Ao clicar na zona do overlay, a modal fecha */}
-                <Card className={styles.openModal}>
-                  <ModalLogs onClose={() => setIsOpen(false)} />
-                  {/* ao clicar no x, fecha. No componente, tenho o onClick={onClose}, que faz ligação com este setIsOpen(false) */}
+              <div className={styles.calendarContainer}>
+                <Card>
+                  <CalendarElement />
                 </Card>
-              </>
-            )}
-          </div>
-          <div className={styles.calendarContainer}>
-            <Card>
-              <CalendarElement />
+              </div>
+            </div>
+          </>
+        )}
+
+        {/* Lógica da Modal (Overlay + Card) colocada fora do ternário para funcionar em ambos os botões */}
+        {isOpen && (
+          <>
+            <div className={styles.overlay} onClick={() => setIsOpen(false)} />
+            <Card className={styles.openModal}>
+              <ModalLogs onClose={() => setIsOpen(false)} />
             </Card>
-          </div>
-        </div>
+          </>
+        )}
       </section>
     </>
   );
