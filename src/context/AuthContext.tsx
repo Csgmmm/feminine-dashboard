@@ -30,8 +30,14 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
       setUser(data.session?.user ?? null); //Quero atualizar a gaveta user, e para isso uso a chave setUser. O valor que lhe dou vem de data.session?.user, ou seja, vou ao data, verifico se tem sessão, e se tiver, guardo o utilizador. Se não houver nada, guardo null.
       setLoading(false); //aqui, abro a gaveta do loading que advém true, e após ele fazer a ação anterior, já pode ficar false, para que não continue a esperar por uma resposta.
     });
-  }, [AuthContext]);
-
+    const {
+      data: { subscription },
+    } = supabase.auth.onAuthStateChange((_event, session) => {
+      setUser(session?.user ?? null);
+      setLoading(false);
+    });
+    return () => subscription.unsubscribe();
+  }, []);
   //Fui buscar o const criado com o context criado. Em que é ele que vai provide toda a info aos filhos.
   //No value, quero que todos os componentes dentro das tags, tenham os conteudos das gavetas user e loading.
   return (

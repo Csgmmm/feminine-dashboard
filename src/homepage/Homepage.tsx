@@ -69,7 +69,11 @@ function Homepage() {
   };
 
   useEffect(() => {
-  getUser(user!.id).then((data) => setProfile(data));
+  if (!user) return;  // ← garante que há user antes de fazer queries
+  
+  getUser(user.id).then((data) => {
+    if (data) setProfile(data);
+  });
   handleDataLogs();
   handleDataPeriod();
 }, [user]);
