@@ -49,59 +49,98 @@ function Logs() {
         <div className={styles.containerTable}>
           <h2 className={styles.titleLogs}>Your logs</h2>
 
-          {/* quero que ele vá ao logs que é onde está guardado os meus dados e que por cada log, retorna uma tabela com os dados desse log */}
-          {logs.map((log) => (
-            //Usar key para que o react entenda que linha foi alterada caso se mude dados. Usar o log.id tbm para que ligue os logs a cada id.
-            <table key={log.id} className={styles.logEntryTable}>
-              <thead>
-                <tr>
-                  <th>
-                    Period: {log.startDatePeriod} to {log.endDatePeriod}
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>Intensity</td>
+          {/* Desktop */}
+          <table className={styles.tableDesktop}>
+            <thead>
+              <tr>
+                <th>Start Date</th>
+                <th>End Date</th>
+                <th>Intensity</th>
+                <th>Pain</th>
+                <th>Sleep</th>
+                <th>Exercise</th>
+                <th>Cravings</th>
+                <th>Energy</th>
+                <th>Skin</th>
+                <th>Hair</th>
+                <th>Mood</th>
+              </tr>
+            </thead>
+            <tbody>
+              {/* quero que ele vá ao logs que é onde está guardado os meus dados e que por cada log, retorna uma tabela com os dados desse log */}
+              {logs.map((log) => (
+                //O react precisa da key na unidade que se repete que no caso é o table row. Para saber tbm como reagir quando os dados mudam, usar a key para ligar os dados certos. e o log.id, o react sabe que id é cada dado e se mudar um dado apenas, ele sabe que é para mudar apenas aquele.
+                <tr key={log.id}>
+                  <td>{log.startDatePeriod}</td>
+                  <td>{log.endDatePeriod}</td>
                   <td>{log.intensity}</td>
-                </tr>
-                <tr>
-                  <td>Pain</td>
                   <td>{log.pain?.join(", ") || "None"}</td>
-                  {/* tem pain? então joina-se a virgula e transforma em string, senão é None */}
-                </tr>
-                <tr>
-                  <td>Sleep</td>
+                  {/* tem pain? então joina-se a virgula e o espaço e torna o json em string. Senão houver dados, retorna None */}
                   <td>{log.sleep}</td>
-                </tr>
-                <tr>
-                  <td>Exercise</td>
                   <td>{log.exercise ? "Yes" : "No"}</td>
-                  {/* tem exercise? então o true é Yes e o false é No */}
-                </tr>
-                <tr>
-                  <td>Cravings</td>
+                  {/* Boolean. tem exercise? então o true é Yes, ou o false é No  */}
                   <td>{log.cravings?.join(", ") || "None"}</td>
-                </tr>
-                <tr>
-                  <td>Energy</td>
                   <td>{log.energy}</td>
-                </tr>
-                <tr>
-                  <td>Skin</td>
                   <td>{log.skin?.join(", ") || "None"}</td>
-                </tr>
-                <tr>
-                  <td>Hair</td>
                   <td>{log.hair}</td>
-                </tr>
-                <tr>
-                  <td>Mood</td>
                   <td>{log.mood?.join(", ") || "None"}</td>
                 </tr>
-              </tbody>
-            </table>
-          ))}
+              ))}
+            </tbody>
+          </table>
+          {/* Table mobile */}
+          <div className={styles.tableMobile}>
+            {logs.map((log) => (
+              //Aqui, preciso que o map retorne toda a tabela por cada log. Ou seja, uma tabela por cada log.
+              <table key={log.id} className={styles.entryTableMobile}>
+                <thead>
+                  <tr>
+                    <th>
+                      Period: {log.startDatePeriod} to {log.endDatePeriod}
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Intensity</td>
+                    <td>{log.intensity}</td>
+                  </tr>
+                  <tr>
+                    <td>Pain</td>
+                    <td>{log.pain?.join(", ") || "None"}</td>
+                  </tr>
+                  <tr>
+                    <td>Sleep</td>
+                    <td>{log.sleep}</td>
+                  </tr>
+                  <tr>
+                    <td>Exercise</td>
+                    <td>{log.exercise ? "Yes" : "No"}</td>
+                  </tr>
+                  <tr>
+                    <td>Cravings</td>
+                    <td>{log.cravings?.join(", ") || "None"}</td>
+                  </tr>
+                  <tr>
+                    <td>Energy</td>
+                    <td>{log.energy}</td>
+                  </tr>
+                  <tr>
+                    <td>Skin</td>
+                    <td>{log.skin?.join(", ") || "None"}</td>
+                  </tr>
+                  <tr>
+                    <td>Hair</td>
+                    <td>{log.hair}</td>
+                  </tr>
+                  <tr>
+                    <td>Mood</td>
+                    <td>{log.mood?.join(", ") || "None"}</td>
+                  </tr>
+                </tbody>
+              </table>
+            ))}
+          </div>
         </div>
       </section>
     </>
