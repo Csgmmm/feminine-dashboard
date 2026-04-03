@@ -3,7 +3,6 @@ import styles from "./sidebar.module.css";
 import Logo from "../../logo/Logo";
 import Button from "../../button/Button";
 
-
 import {
   Calendar1,
   LayoutDashboard,
@@ -27,19 +26,33 @@ function Sidebar({ isOpen, setIsOpen }: ISidebar) {
       <aside
         className={`${styles.sidebar} ${isOpen ? styles.open : styles.closed}`}
       >
-        {isOpen && ( //se o isOpen for true, entao mostra o que esta aqui dentro
-          <>
+        <div
+          className={`${styles.sidebarHeader} `}
+        >
+          {isOpen && (
             <Link to={"/homepage"}>
               <div className={styles.logoContainer}>
                 <Logo />
                 <span className={styles.logoText}>MyCycle</span>
               </div>
             </Link>
+          )}
+          <Button
+            className={styles.hamburguerIcon}
+            onClick={() => setIsOpen(!isOpen)}
+            variant="link"
+          >
+            <Menu />
+          </Button>
+        </div>
+
+        {isOpen && (
+          <>
             <nav className={styles.nav}>
               <Link to={"/homepage"}>
                 <Button
                   variant="tertiary"
-                  isActive={location.pathname === "/homepage" ? true : false}
+                  isActive={location.pathname === "/homepage"}
                   className={styles.button}
                 >
                   <LayoutDashboard />
@@ -49,7 +62,7 @@ function Sidebar({ isOpen, setIsOpen }: ISidebar) {
               <Link to={"/calendar"}>
                 <Button
                   variant="tertiary"
-                  isActive={location.pathname === "/calendar" ? true : false}
+                  isActive={location.pathname === "/calendar"}
                   className={styles.button}
                 >
                   <Calendar1 />
@@ -59,7 +72,7 @@ function Sidebar({ isOpen, setIsOpen }: ISidebar) {
               <Link to={"/logs"}>
                 <Button
                   variant="tertiary"
-                  isActive={location.pathname === "/logs" ? true : false}
+                  isActive={location.pathname === "/logs"}
                   className={styles.button}
                 >
                   <List />
@@ -69,7 +82,7 @@ function Sidebar({ isOpen, setIsOpen }: ISidebar) {
               <Link to={"/profile"}>
                 <Button
                   variant="tertiary"
-                  isActive={location.pathname === "/profile" ? true : false}
+                  isActive={location.pathname === "/profile"}
                   className={styles.button}
                 >
                   <UserPen />
@@ -79,7 +92,6 @@ function Sidebar({ isOpen, setIsOpen }: ISidebar) {
             </nav>
 
             <nav className={styles.bottomNav}>
-              {/* Se o sidebar estiver aberto, passa a false (fecha) ao clicar no icon */}
               <Card variant="upgrade" className={styles.cardPremium}>
                 <h3 className={styles.titleCard}>Get Premium</h3>
                 <h4 className={styles.titlesSubTitle}>
@@ -95,14 +107,6 @@ function Sidebar({ isOpen, setIsOpen }: ISidebar) {
             </nav>
           </>
         )}
-
-        <Button
-          className={styles.hamburguer}
-          onClick={() => setIsOpen(!isOpen)}
-          variant="link"
-        >
-          <Menu />
-        </Button>
       </aside>
     </>
   );
