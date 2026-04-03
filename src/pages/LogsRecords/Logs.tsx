@@ -47,7 +47,7 @@ function Logs() {
           <ProfileDropdown />
         </div>
         <div className={styles.containerTable}>
-          <h2>Your logs</h2>
+          <h2 className={styles.titleLogs}>Your logs</h2>
 
           {/* quero que ele vá ao logs que é onde está guardado os meus dados e que por cada log, retorna uma tabela com os dados desse log */}
           {logs.map((log) => (
@@ -55,7 +55,6 @@ function Logs() {
             <table key={log.id} className={styles.logEntryTable}>
               <thead>
                 <tr>
-                  {/* Cabeçalho único para este log específico que ocupa a largura toda via CSS */}
                   <th>
                     Period: {log.startDatePeriod} to {log.endDatePeriod}
                   </th>

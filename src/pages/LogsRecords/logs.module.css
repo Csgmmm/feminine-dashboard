@@ -14,12 +14,15 @@
   margin-bottom: 44px;
 }
 
-.title {
-  color: rgb(54, 54, 54);
+.titleLogs {
   padding-bottom: 16px;
 }
 
 /* Container table */
+
+.title {
+  padding-bottom: 16px;
+}
 .containerTable {
   padding: 20px;
   background-color: #ffffff;
@@ -82,7 +85,7 @@
   color: #888;
   text-transform: uppercase;
   font-size: 0.75rem;
-  width: 40%; 
+  width: 40%;
   text-align: left;
 }
 
