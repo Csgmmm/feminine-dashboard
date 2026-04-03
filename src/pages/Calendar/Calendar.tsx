@@ -5,9 +5,6 @@ import { getUser } from "../../api/usersService";
 import styles from "./calendar.module.css";
 import ProfileDropdown from "../../profile/ProfileDropdown";
 import CalendarElement from "../../calendarElement/CalendarElement";
-import { Link } from "react-router-dom";
-import Button from "../../button/Button";
-import { ArrowRight } from "lucide-react";
 
 function Calendar() {
   const { user } = useAuth();
