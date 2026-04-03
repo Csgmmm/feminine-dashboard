@@ -35,15 +35,22 @@
   width: 100%;
 }
 @media (max-width: 768px) {
-  .sidebarHeader .hamburguerIcon {
-    display: none;
-  }
   .sidebarHeader {
     display: flex;
     justify-content: center;
   }
 }
 
+.hamburgerIcon {
+  display: flex;
+  justify-content: center;
+}
+
+@media (max-width: 768px) {
+  .hamburgerIcon {
+    display: none;
+  }
+}
 .logoContainer {
   display: flex;
   align-items: center;

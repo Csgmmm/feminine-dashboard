@@ -11,9 +11,101 @@
 .containerHeader {
   display: flex;
   justify-content: space-between;
+  margin-bottom: 44px;
 }
 
 .title {
   color: rgb(54, 54, 54);
   padding-bottom: 16px;
+}
+
+/* Container table */
+.containerTable {
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  margin: 20px 0;
+  width: 100%;
+  overflow-x: auto;
+}
+
+/* Espaçamento entre cada "bloco" de log */
+.logEntryTable {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 30px; /* Separação entre logs */
+  background-color: #ffffff;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid #f0f0f0;
+  display: table; /* Garante comportamento de tabela em desktop */
+}
+
+/* header de cada cell */
+.logEntryTable thead tr {
+  display: flex; /* Permite que o TH ignore as colunas do body */
+  width: 100%;
+}
+
+.logEntryTable thead th {
+  display: block; /* Faz o th ocupar 100% da largura horizontal */
+  width: 100%;
+  background-color: #fcfcfc;
+  padding: 15px;
+  text-align: left;
+  font-size: 0.9rem;
+  color: #333;
+  border-bottom: 2px solid #eee;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* table data */
+.logEntryTable tr {
+  display: flex; /* Alinha o label à esquerda e valor à direita */
+  justify-content: space-between;
+  width: 100%;
+}
+
+.logEntryTable td {
+  display: block;
+  padding: 12px 15px;
+  border-bottom: 1px solid #f8f8f8;
+  font-size: 0.9rem;
+  color: #444;
+}
+
+/* o nome de cada log do lado esquerdo*/
+.logEntryTable td:first-child {
+  font-weight: 700;
+  color: #888;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  width: 40%; 
+  text-align: left;
+}
+
+/* O valor de cada log direita  */
+.logEntryTable td:last-child {
+  text-align: right;
+  color: #333;
+  flex: 1; /* Ocupa o resto do espaço */
+}
+
+/* Remove a borda na última linha de cada bloco */
+.logEntryTable tr:last-child td {
+  border-bottom: none;
+}
+
+/* Hover suave em cada linha do log */
+.logEntryTable tr:hover {
+  background-color: #fafafa;
+}
+
+/* Ajuste Mobile */
+@media (max-width: 768px) {
+  .logEntryTable td:first-child {
+    width: 50%; /* Dá um pouco mais de espaço ao label no mobile */
+  }
 }

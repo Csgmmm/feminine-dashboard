@@ -36,14 +36,15 @@ function Sidebar({ isOpen, setIsOpen }: ISidebar) {
                 <span className={styles.logoText}>MyCycle</span>
               </div>
             </Link>
+            
           )}
+          <div className={styles.hamburgerIcon}>
           <Button
-            className={styles.hamburguerIcon}
             onClick={() => setIsOpen(!isOpen)}
             variant="link"
           >
             <Menu />
-          </Button>
+          </Button></div>
         </div>
 
         {isOpen && (
