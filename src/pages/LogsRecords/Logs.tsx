@@ -12,6 +12,23 @@ function Logs() {
   const [logs, setLogs] = useState<any[]>([]);
   const [selectDate, setSelectedDate] = useState<string>("all"); //como é "All", quando a página for carregada, não filtra nada, mostra o Array inteiro nos filtros
 
+  const getMonthName = (dateString: string) => {
+    const date = new Date(dateString);
+    return new Intl.DateTimeFormat("en-US", { month: "long" }).format(date);
+  };
+
+  const uniqueMonths = Array.from(
+    new Set(logs.map((log) => getMonthName(log.startDatePeriod))),
+  );
+  //cria um novo array apenas com os nomes dos meses nos logs startDatePeriod sem repetição
+
+  //filtros
+  const filteredLogs =
+    selectDate === "all"
+      ? logs
+      : logs.filter((log) => getMonthName(log.startDatePeriod) === selectDate);
+  //dentro de filteredLogs vai guardar a condição "se o selectedDate for igual a "all" então vai aparecer os logs todos" que é o que aparece quando a página é carregada, senão, ele vai a logs e faz o filter, que filtra cada log e retorna dentro desse log, o mês de cada log do startdateperiod e se for igual ao selectedate
+
   useEffect(() => {
     if (!user) return; //a query só corre quando o user já existe
     //Se houver user, faz a query (chama os dados a base de dados) ao supabase:
@@ -29,13 +46,6 @@ function Logs() {
       setProfile(data);
     });
   }, [user]);
-
-  //filtros
-  const filteredLogs =
-    selectDate === "all"
-      ? logs
-      : logs.filter((log) => log.startDatePeriod === selectDate);
-  //dentro de filteredLogs vai guardar a condição "se o selectedDate for igual a "all" então vai aparecer os logs todos" que é o que aparece quando a página é carregada, senão, ele vai a logs e faz o filter, que filtra cada log e retorna dentro desse log, o startdateperiod se for igual ao selectedate
 
   if (!profile) return <span className={styles.loading}>Loading...</span>;
 
@@ -60,14 +70,15 @@ function Logs() {
 
           <select
             className={styles.dateSelector}
-            value={selectDate}
+            value={selectDate} //com base nisto, o que vai aparecer no input é o que escolher na dropdown, que inicialmente é "all" para mostrar tudo
             onChange={(e) => setSelectedDate(e.target.value)}
           >
-            <option value="all">Show all dates</option>
-            {logs.map((log) => (
-              <option key={log.id} value={log.startDatePeriod}>
-                {log.startDatePeriod}
+            <option value="all">All months</option>
+            {uniqueMonths.map((month) => (
+              <option key={month} value={month}>
+                {month.charAt(0).toUpperCase() + month.slice(1)}
               </option>
+              //quero que vá ao meu novo array, e por cada month, quero que ele retorne cada option com a key e o value de cada valor e capitaliza a primeira letra + o resto da palavra
               // O value={log.startDatePeriod} dentro da tag <option> define que o valor real que será enviado para o estado quando eu clico nessa opção é a data exata daquele log
             ))}
           </select>
