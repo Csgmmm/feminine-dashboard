@@ -10,6 +10,12 @@
   }
 }
 
+@media (max-width: 768px) {
+  .container {
+    padding: 1rem;
+  }
+}
+
 .calendar {
   border: none;
   border-radius: 16px;

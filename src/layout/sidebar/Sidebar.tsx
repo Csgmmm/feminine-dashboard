@@ -77,7 +77,6 @@ function Sidebar({ isOpen, setIsOpen }: ISidebar) {
                   <h4>Logs</h4>
                 </Button>
               </Link>
-              <div className={styles.profileForDesktop}>
               <Link to={"/profile"}>
                 <Button
                   variant="tertiary"
@@ -87,9 +86,8 @@ function Sidebar({ isOpen, setIsOpen }: ISidebar) {
                   <UserPen />
                   <h4>Profile</h4>
                 </Button>
-              </Link></div>
-              <div className={styles.profileForMobile}>
-              <ProfileDropdown /></div>
+              </Link>
+
             </nav>
 
             <nav className={styles.bottomNav}>

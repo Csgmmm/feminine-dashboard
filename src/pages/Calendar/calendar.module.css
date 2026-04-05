@@ -26,3 +26,10 @@
   border-radius: 16px;
   margin-top: 2rem;
 }
+
+
+@media (max-width: 768px) {
+  .profileDropdown {
+    display: none;
+  }
+}

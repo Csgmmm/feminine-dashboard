@@ -96,8 +96,9 @@ function Homepage() {
               symptoms and wellbeing.
             </p>
           </span>
-
-          <ProfileDropdown />
+          <div className={styles.profileDropdown}>
+            <ProfileDropdown />
+          </div>
         </div>
 
         {error && <p>Error: {error}</p>}

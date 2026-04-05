@@ -30,7 +30,8 @@ function Calendar() {
               cravings, and everything in between
             </p>
           </span>
-          <ProfileDropdown />
+          <div className={styles.profileDropdown}>
+          <ProfileDropdown /></div>
         </div>
         <div className={styles.container}>
           

@@ -69,7 +69,8 @@ function Logs() {
             </p>
           </span>
 
-          <ProfileDropdown />
+          <div className={styles.profileDropdown}>
+          <ProfileDropdown /></div>
         </div>
         <div className={styles.containerTable}>
           <h2 className={styles.titleLogs}>Your logs</h2>

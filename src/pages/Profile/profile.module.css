@@ -76,7 +76,7 @@
 /* main da pagina completa */
 .main {
   flex: 1;
-  padding: 0rem 3rem;
+  padding: 0rem;
   overflow-y: auto;
   display: flex;
   flex-direction: column;

@@ -109,6 +109,12 @@
   margin-top: 16px;
 }
 
+@media (max-width: 768px) {
+  .profileDropdown {
+    display: none;
+  }
+}
+
 /* cards */
 .grid {
   display: grid;
@@ -181,6 +187,12 @@
   }
 }
 
+@media (max-width: 768px) {
+  .calendarContainer {
+    padding: 24px;
+  }
+}
+
 /* Calendar Icon Arrow Link */
 
 .containerArrowCalendar {
@@ -188,6 +200,12 @@
   justify-content: space-between;
   align-items: center;
   display: flex;
+}
+
+@media (max-width: 768px) {
+  .containerArrowCalendar {
+    padding-left: 24px;
+  }
 }
 
 /* Cycle  button container*/
@@ -212,23 +230,29 @@
 /* modal */
 
 .openModal {
-  position: fixed; /* Importante para a modal flutuar sobre o overlay */
-  width: 500px;
-  height: 500px;
+  position: fixed;
+  width: 50%;
+  height: fit-content;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 999;
 }
 
+@media (max-width: 768px) {
+  .openModal {
+    width: 100%;
+    height: fit-content;
+    margin: 32px;
+  }
+}
 .overlay {
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(0, 0, 0, 0.5); /* Preto com 50% de transparência */
-  z-index: 998; 
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 998;
   backdrop-filter: blur(2px);
 }
-

@@ -3,20 +3,28 @@
   height: 100vh;
   background-color: #f5f3f3;
   overflow: hidden;
-  padding: 1.5rem;
+  padding: 1.5rem; /* Padding do Desktop */
   gap: 1rem;
-}
-
-@media (max-width: 768px) {
-  #sidebar {
-    flex-direction: column;
-  }
 }
 
 .main {
   flex: 1;
   padding: 0.35rem;
-  overflow-y: auto;
   display: flex;
   flex-direction: column;
+}
+
+@media (max-width: 768px) {
+  #sidebar {
+    flex-direction: column;
+    padding: 0;
+    gap: 0;
+    height: auto;
+    overflow: visible;
+  }
+
+  .main {
+    padding: 1.5rem;
+    flex: none;
+  }
 }
