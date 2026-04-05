@@ -10,6 +10,7 @@ function Logs() {
   const { user } = useAuth();
   const [profile, setProfile] = useState<IUsers | null>(null);
   const [logs, setLogs] = useState<any[]>([]);
+  const [selectDate, setSelectedDate] = useState<string>("all"); //como é "All", quando a página for carregada, não filtra nada, mostra o Array inteiro nos filtros
 
   useEffect(() => {
     if (!user) return; //a query só corre quando o user já existe
@@ -21,12 +22,20 @@ function Logs() {
       .order("startDatePeriod", { ascending: false })
       .then(({ data }) => {
         if (data) setLogs(data);
+        //se a variavel data em que guardei dados tiver algo, vai pegar nesses dados e guardar na gaveta "logs", imprimindo no ecrã
       });
     //depois faz isto:
     getUser(user!.id).then((data) => {
       setProfile(data);
     });
   }, [user]);
+
+  //filtros
+  const filteredLogs =
+    selectDate === "all"
+      ? logs
+      : logs.filter((log) => log.startDatePeriod === selectDate);
+  //dentro de filteredLogs vai guardar a condição "se o selectedDate for igual a "all" então vai aparecer os logs todos" que é o que aparece quando a página é carregada, senão, ele vai a logs e faz o filter, que filtra cada log e retorna dentro desse log, o startdateperiod se for igual ao selectedate
 
   if (!profile) return <span className={styles.loading}>Loading...</span>;
 
@@ -49,6 +58,21 @@ function Logs() {
         <div className={styles.containerTable}>
           <h2 className={styles.titleLogs}>Your logs</h2>
 
+          <select
+            className={styles.dateSelector}
+            value={selectDate}
+            onChange={(e) => setSelectedDate(e.target.value)}
+          >
+            <option value="all">Show all dates</option>
+            {logs.map((log) => (
+              <option key={log.id} value={log.startDatePeriod}>
+                {log.startDatePeriod}
+              </option>
+              // O value={log.startDatePeriod} dentro da tag <option> define que o valor real que será enviado para o estado quando eu clico nessa opção é a data exata daquele log
+            ))}
+          </select>
+          {/* "O value={selectedDate} garante que o seletor mostre smp o que está guardado no estado, que inicialmente é a string "all" para mostrar tudo, enquanto o onChange deteta quando eu clico numa nova opção, e usa o setSelectedDate(e.target.value) para extrair o valor da data selecionada e atualizar o estado com essa nova data específica (como "2026-04-03"). */}
+
           {/* Desktop */}
           <table className={styles.tableDesktop}>
             <thead>
@@ -68,7 +92,7 @@ function Logs() {
             </thead>
             <tbody>
               {/* quero que ele vá ao logs que é onde está guardado os meus dados e que por cada log, retorna uma tabela com os dados desse log */}
-              {logs.map((log) => (
+              {filteredLogs.map((log) => (
                 //O react precisa da key na unidade que se repete que no caso é o table row. Para saber tbm como reagir quando os dados mudam, usar a key para ligar os dados certos. e o log.id, o react sabe que id é cada dado e se mudar um dado apenas, ele sabe que é para mudar apenas aquele.
                 <tr key={log.id}>
                   <td>{log.startDatePeriod}</td>
@@ -90,7 +114,7 @@ function Logs() {
           </table>
           {/* Table mobile */}
           <div className={styles.tableMobile}>
-            {logs.map((log) => (
+            {filteredLogs.map((log) => (
               //Aqui, preciso que o map retorne toda a tabela por cada log. Ou seja, uma tabela por cada log.
               <table key={log.id} className={styles.entryTableMobile}>
                 <thead>

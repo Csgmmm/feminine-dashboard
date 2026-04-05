@@ -18,6 +18,48 @@
   padding-bottom: 16px;
 }
 
+/* Selector */
+
+.filterSection {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+@media (max-width: 480px) {
+  .filterSection {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+.dateSelector {
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  background-color: #fff;
+  color: #333;
+  font-family: inherit;
+  font-size: 0.9rem;
+  outline: none;
+  cursor: pointer;
+  min-width: 150px;
+}
+
+@media (max-width: 480px) {
+  .dateSelector {
+    width: 100%;
+  }
+}
+
+.dateSelector:focus {
+  border-color: #ff8fa3;
+  box-shadow: 0 0 0 2px rgba(255, 143, 163, 0.1);
+}
+
 /* Container table */
 
 .title {
@@ -148,16 +190,16 @@
 
 @media (min-width: 769px) {
   .tableMobile {
-    display: none; 
+    display: none;
   }
 }
 
 @media (max-width: 768px) {
   .tableDesktop {
-    display: none; 
+    display: none;
   }
-  
+
   .containerTable {
-    padding: 10px; 
+    padding: 10px;
   }
 }

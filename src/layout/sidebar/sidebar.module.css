@@ -14,18 +14,19 @@
 @media (max-width: 768px) {
   .sidebar {
     width: 70px;
-    padding: 1.5rem 0.5rem;
+    padding: 0.4rem;
   }
 }
 
 /* Hamburguer menu */
 
 .closed {
-  width: fit-content;
+  width: 70px;
   height: fit-content;
   overflow: hidden;
-  padding: 0;
+  padding: 0.4rem;
 }
+
 
 /* Container do logo */
 
@@ -37,20 +38,10 @@
 @media (max-width: 768px) {
   .sidebarHeader {
     display: flex;
-    justify-content: center;
+    flex-direction: column-reverse;
   }
 }
 
-.hamburgerIcon {
-  display: flex;
-  justify-content: center;
-}
-
-@media (max-width: 768px) {
-  .hamburgerIcon {
-    display: none;
-  }
-}
 .logoContainer {
   display: flex;
   align-items: center;

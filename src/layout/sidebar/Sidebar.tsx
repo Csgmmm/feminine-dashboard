@@ -26,9 +26,7 @@ function Sidebar({ isOpen, setIsOpen }: ISidebar) {
       <aside
         className={`${styles.sidebar} ${isOpen ? styles.open : styles.closed}`}
       >
-        <div
-          className={`${styles.sidebarHeader} `}
-        >
+        <div className={styles.sidebarHeader}>
           {isOpen && (
             <Link to={"/homepage"}>
               <div className={styles.logoContainer}>
@@ -36,15 +34,12 @@ function Sidebar({ isOpen, setIsOpen }: ISidebar) {
                 <span className={styles.logoText}>MyCycle</span>
               </div>
             </Link>
-            
           )}
-          <div className={styles.hamburgerIcon}>
-          <Button
-            onClick={() => setIsOpen(!isOpen)}
-            variant="link"
-          >
-            <Menu />
-          </Button></div>
+          <div>
+            <Button onClick={() => setIsOpen(!isOpen)} variant="link">
+              <Menu />
+            </Button>
+          </div>
         </div>
 
         {isOpen && (
