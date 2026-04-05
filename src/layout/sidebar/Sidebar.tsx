@@ -12,7 +12,6 @@ import {
   UserPen,
 } from "lucide-react";
 import Card from "../../card/Card";
-import ProfileDropdown from "../../profile/ProfileDropdown";
 
 interface ISidebar {
   isOpen: boolean;
