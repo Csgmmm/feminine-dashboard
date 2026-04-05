@@ -20,44 +20,24 @@
 
 /* Selector */
 
-.filterSection {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 20px;
-  flex-wrap: wrap;
-  gap: 15px;
-}
-
-@media (max-width: 480px) {
-  .filterSection {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-}
-
 .dateSelector {
   padding: 8px 12px;
   border-radius: 8px;
   border: 1px solid #ddd;
-  background-color: #fff;
   color: #333;
-  font-family: inherit;
-  font-size: 0.9rem;
-  outline: none;
   cursor: pointer;
-  min-width: 150px;
-}
-
-@media (max-width: 480px) {
-  .dateSelector {
-    width: 100%;
-  }
+  padding-right: 44px;
+  display: flex;
 }
 
 .dateSelector:focus {
   border-color: #ff8fa3;
   box-shadow: 0 0 0 2px rgba(255, 143, 163, 0.1);
+}
+
+.containerFilter {
+  display: flex;
+  margin-bottom: 16px;
 }
 
 /* Container table */
@@ -127,12 +107,12 @@
 
 /* header de cada cell */
 .entryTableMobile thead tr {
-  display: flex; /* Permite que o TH ignore as colunas do body */
+  display: flex;
   width: 100%;
 }
 
 .entryTableMobile thead th {
-  display: block; /* Faz o th ocupar 100% da largura horizontal */
+  display: block;
   width: 100%;
   background-color: #fcfcfc;
   padding: 15px;
@@ -146,7 +126,7 @@
 
 /* table data */
 .entryTableMobile tr {
-  display: flex; /* Alinha o label à esquerda e valor à direita */
+  display: flex;
   justify-content: space-between;
   width: 100%;
 }
@@ -173,7 +153,7 @@
 .entryTableMobile td:last-child {
   text-align: right;
   color: #333;
-  flex: 1; /* Ocupa o resto do espaço */
+  flex: 1;
 }
 
 /* Remove a borda na última linha de cada bloco */
@@ -186,20 +166,21 @@
   background-color: #fafafa;
 }
 
-/* Mobile version */
+/* versions */
 
-@media (min-width: 769px) {
-  .tableMobile {
-    display: none;
-  }
-}
-
-@media (max-width: 768px) {
+/* até aos 1200px, a table do desktop não aparece */
+@media (max-width: 1200px) {
   .tableDesktop {
     display: none;
   }
-
   .containerTable {
     padding: 10px;
+  }
+}
+
+/* a partir de 1200px, a table do mobile desaparece */
+@media (min-width: 1200px) {
+  .tableMobile {
+    display: none;
   }
 }

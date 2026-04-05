@@ -3,10 +3,20 @@
   align-items: center;
   gap: 10px;
 }
+@media (max-width: 768px) {
+  .toggleContainer {
+    width: 100%;
+  }
+}
 
 .label {
   font-size: 14px;
   color: #3a3a3a;
+}
+@media (max-width: 768px) {
+  .label {
+    width: 100%;
+  }
 }
 
 .toggle {
@@ -19,6 +29,13 @@
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
+
+@media (max-width: 768px) {
+  .toggle {
+    width: 68px;
+  }
+}
+
 
 .on {
   background-color: #cd6b88;

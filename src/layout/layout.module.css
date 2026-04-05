@@ -7,6 +7,12 @@
   gap: 1rem;
 }
 
+@media (max-width: 768px) {
+  #sidebar {
+    flex-direction: column;
+  }
+}
+
 .main {
   flex: 1;
   padding: 0.35rem;

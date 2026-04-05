@@ -5,7 +5,7 @@ function ModalLogs({ onClose }: { onClose: () => void }) {
   return (
     <div className={styles.container}>
       <div className={styles.header}>
-        <h2>Title</h2>
+        <h2>Log your symptoms</h2>
 
         <button className={styles.closeButton} onClick={onClose}>
           <X size={32}/>

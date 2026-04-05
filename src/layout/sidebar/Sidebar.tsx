@@ -12,6 +12,7 @@ import {
   UserPen,
 } from "lucide-react";
 import Card from "../../card/Card";
+import ProfileDropdown from "../../profile/ProfileDropdown";
 
 interface ISidebar {
   isOpen: boolean;
@@ -35,7 +36,8 @@ function Sidebar({ isOpen, setIsOpen }: ISidebar) {
               </div>
             </Link>
           )}
-          <div>
+          {/* Botão do menu */}
+          <div className={styles.btnHamburguer}>
             <Button onClick={() => setIsOpen(!isOpen)} variant="link">
               <Menu />
             </Button>
@@ -75,6 +77,7 @@ function Sidebar({ isOpen, setIsOpen }: ISidebar) {
                   <h4>Logs</h4>
                 </Button>
               </Link>
+              <div className={styles.profileForDesktop}>
               <Link to={"/profile"}>
                 <Button
                   variant="tertiary"
@@ -84,7 +87,9 @@ function Sidebar({ isOpen, setIsOpen }: ISidebar) {
                   <UserPen />
                   <h4>Profile</h4>
                 </Button>
-              </Link>
+              </Link></div>
+              <div className={styles.profileForMobile}>
+              <ProfileDropdown /></div>
             </nav>
 
             <nav className={styles.bottomNav}>

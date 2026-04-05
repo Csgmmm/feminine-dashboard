@@ -3,19 +3,12 @@
 .sidebar {
   width: 260px;
   background-color: rgb(255, 255, 255);
-  height: 100%;
+  height: fit-content;
   display: flex;
   flex-direction: column;
   padding: 1rem 1rem;
   box-shadow: 2px 0 8px rgba(0, 0, 0, 0.05);
   border-radius: 16px;
-  overflow-y: auto;
-}
-@media (max-width: 768px) {
-  .sidebar {
-    width: 70px;
-    padding: 0.4rem;
-  }
 }
 
 /* Hamburguer menu */
@@ -27,7 +20,6 @@
   padding: 0.4rem;
 }
 
-
 /* Container do logo */
 
 .sidebarHeader {
@@ -35,24 +27,11 @@
   justify-content: space-between;
   width: 100%;
 }
-@media (max-width: 768px) {
-  .sidebarHeader {
-    display: flex;
-    flex-direction: column-reverse;
-  }
-}
 
 .logoContainer {
   display: flex;
   align-items: center;
   gap: 0.55rem;
-}
-
-@media (max-width: 768px) {
-  .logoContainer {
-    display: flex;
-    justify-content: space-around;
-  }
 }
 
 .logoText {
@@ -65,13 +44,8 @@ a {
   text-decoration: none;
 }
 
-@media (max-width: 768px) {
-  .logoText {
-    display: none;
-  }
-}
-
 /* nav  */
+
 .nav {
   display: flex;
   flex-direction: column;
@@ -83,24 +57,20 @@ a {
   text-decoration: none;
 }
 
-@media (max-width: 768px) {
-  .nav h4 {
+@media (min-width: 768px) {
+  .profileForMobile {
     display: none;
   }
 }
 
 /* bottom nav */
+
 .bottomNav {
   margin-top: auto;
 }
 
-@media (max-width: 768px) {
-  .bottomNav h3 {
-    display: none;
-  }
-}
-
 /* card Upgrade */
+
 .titleCard {
   color: rgb(255, 255, 255);
   padding-bottom: 4px;
@@ -115,11 +85,6 @@ a {
   font-size: 14px;
 }
 
-@media (max-width: 768px) {
-  .titlesSubTitle {
-    display: none;
-  }
-}
 /* button do Get Premium */
 
 .button {
@@ -127,11 +92,6 @@ a {
   width: 100%;
 }
 
-@media (max-width: 768px) {
-  .buttonUpgrade {
-    display: none;
-  }
-}
 .primaryButton {
   background-color: #ffffff;
   color: #323232;
@@ -139,28 +99,66 @@ a {
   justify-content: space-between;
 }
 
-@media (max-width: 768px) {
-  .primaryButton {
-    padding: 0;
-    justify-content: center;
-    background-color: transparent;
-    color: white;
-  }
-}
-
 .primaryButton:hover {
   border-radius: 14px;
   transform: rotate(4deg);
 }
 
-@media (max-width: 768px) {
-  .primaryButton:hover {
-    transform: none;
-    background-color: transparent;
-  }
-}
-
 .primaryButton:hover::before {
   opacity: 0.5;
   transform: scale(2);
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    width: 100%;
+    height: auto;
+    flex-direction: row;
+    align-items: center;
+    border-radius: 0 0 16px 16px;
+    position: relative; /* Evita que desapareça se o layout container for flex */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  }
+  .sidebarHeader {
+    flex-direction: row-reverse;
+  }
+
+  .profileForDesktop {
+    display: none;
+  }
+
+  .closed,
+  .open {
+    width: 100%;
+    height: auto;
+    padding: 0.5rem 1rem;
+  }
+
+  .sidebarHeader {
+    width: auto;
+  }
+
+  .logoText,
+  .nav h4 {
+    display: none;
+  }
+
+  .nav {
+    flex-direction: row;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    padding-left: 24px;
+    width: 100%;
+    justify-content: space-between
+  }
+
+  .bottomNav {
+    display: none;
+  }
+
+  .button {
+    width: auto;
+    padding: 8px;
+  }
 }
