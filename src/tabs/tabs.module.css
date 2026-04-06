@@ -5,9 +5,10 @@
 .tabsHeader {
   display: flex;
   gap: 10px;
-  padding: 16px 0px 24px;
-  justify-content: space-between;
+    padding: 16px 0 0px;
+    margin-bottom: 24px;
   width: 80%;
+   border-bottom: 1px solid #e5e7eb;
 }
 
 .tabsBtn {
@@ -28,18 +29,17 @@
 @media (max-width: 768px) {
   .tabsHeader {
     display: flex;
-    justify-content: space-between;
     gap: 0;
-    padding: 16px 0;
+    padding: 0px;
+    margin-bottom: 16px;
     width: 100%;
-    overflow: scroll;
     gap: 16px;
+    border-bottom: 1px solid #e5e7eb;
   }
 }
 
 @media (min-width: 768px) {
   .tabsHeader {
     width: 100%;
-    overflow: scroll;
   }
 }

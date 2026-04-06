@@ -8,9 +8,6 @@ interface ITabs {
 const tabs = [
   "Symptoms", // pain, energy, mood, skin, hair
   "Intensity",
-  "Exercise",
-  "Sleep",
-  "Cravings",
 ];
 
 const Tabs = ({ activeTab, setActiveTab }: ITabs) => {
@@ -33,18 +30,6 @@ const Tabs = ({ activeTab, setActiveTab }: ITabs) => {
             {tab}
           </Button>
         ))}
-      </div>
-
-      <div className={styles.content}>
-        {activeTab === "Intensity"}
-        {activeTab === "Exercise"}
-        {activeTab === "Sleep"}
-        {activeTab === "Pain"}
-        {activeTab === "Cravings"}
-        {activeTab === "Energy"}
-        {activeTab === "Skin"}
-        {activeTab === "Hair"}
-        {activeTab === "Mood"}
       </div>
     </div>
   );

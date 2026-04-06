@@ -4,9 +4,6 @@ import Tabs from "../tabs/Tabs";
 import Intensity from "./Intensity";
 import { useState } from "react";
 import Symptoms from "./Symptoms";
-import Exercise from "./Exercise";
-import Sleep from "./Sleep";
-import Cravings from "./Cravings";
 
 function ModalLogs({ onClose }: { onClose: () => void }) {
   // 1 - criar o estado da aba ativa (começa em Symptoms)
@@ -36,23 +33,6 @@ function ModalLogs({ onClose }: { onClose: () => void }) {
         {activeTab === "Intensity" && (
           <div>
             <Intensity />
-          </div>
-        )}
-
-        {activeTab === "Exercise" && (
-          <div>
-            <Exercise />
-          </div>
-        )}
-
-        {activeTab === "Sleep" && (
-          <div>
-            <Sleep />
-          </div>
-        )}
-        {activeTab === "Cravings" && (
-          <div>
-            <Cravings />
           </div>
         )}
       </div>

@@ -1,0 +1,62 @@
+.label {
+  font-size: 16px;
+  font-weight: 600;
+  color: #4b5563; 
+}
+
+.btnContainer {
+    margin-top: 24px;
+}
+.intensityGroup {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.intensityItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  flex: 1;
+}
+
+.iconCircle {
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  background-color: #f4f6f8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+  border: 2px solid transparent;
+}
+
+.dropIcon {
+  font-size: 20px;
+  opacity: 0.4;
+}
+
+
+.activeCircle {
+  background-color: white;
+  border-color: #cd6b88; 
+  box-shadow: 0 4px 15px rgba(233, 138, 125, 0.2);
+}
+
+.activeCircle .dropIcon {
+  opacity: 1;
+  color: #cd6b88;
+}
+
+.intensityText {
+  font-size: 13px;
+  color: #7d858f;
+  font-weight: 500;
+}
+
+.activeText {
+  color: #cd6b88;
+  font-weight: bold;
+}

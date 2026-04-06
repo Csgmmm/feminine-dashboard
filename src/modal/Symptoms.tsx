@@ -48,7 +48,7 @@ const SymptomsForm = () => {
       } = await supabase.auth.getUser();
 
       if (userError || !user) {
-        alert("Utilizador não encontrado.");
+        alert("User not found");
         return;
       }
 
@@ -86,16 +86,16 @@ const SymptomsForm = () => {
         );
 
         if (errorCycle) throw errorCycle;
-        alert("Sintomas guardados e Ciclo Reiniciado!");
+        alert("Symptoms saved and Cycle Restarted!");
       } else {
-        alert("Sintomas guardados com sucesso!");
+        alert("Symptoms saved successfully!");
       }
 
       // 5. Forçar refresh para atualizar o gráfico no outro componente
       window.location.reload();
     } catch (error) {
       console.error("Error:", error);
-      alert("Erro ao guardar os dados.");
+      alert("Error saving data.");
     }
   };
 
@@ -187,6 +187,7 @@ const SymptomsForm = () => {
           </div>
         </div>
       </div>
+
       <Button
         variant="primary"
         className={styles.saveButton}
