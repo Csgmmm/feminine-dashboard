@@ -40,10 +40,11 @@ function CalendarElement() {
         value={selectedDate}
         onClickDay={(date) => {
           if (selectedDate?.toDateString() === date.toDateString()) {
-            // converte a data para texto para fazer ===
-            setSelectedDate(null);
+            //passa a data selecionada para string e verifica se é igual à data selecionada
+
+            setSelectedDate(null); //Se as datas forem iguais, significa que o user clicou num dia que já estava selecionado
           } else {
-            setSelectedDate(date);
+            setSelectedDate(date); //Se as datas forem diferentes, significa que o user clicou num dia diferente, então atualiza a data selecionada para a nova data clicada
           }
         }}
         tileClassName={({ date }) => {

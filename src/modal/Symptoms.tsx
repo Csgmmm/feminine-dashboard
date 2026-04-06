@@ -86,7 +86,7 @@ const SymptomsForm = () => {
         );
 
         if (errorCycle) throw errorCycle;
-        alert("Symptoms saved and Cycle Restarted!");
+        alert("Symptoms not saved");
       } else {
         alert("Symptoms saved successfully!");
       }

@@ -58,7 +58,7 @@ const Intensity = () => {
         );
 
         if (errorCycle) throw errorCycle;
-        alert("Intensity saved and Cycle Restarted!");
+        alert("Intensity not saved");
       } else {
         alert("Intensity saved successfully!");
       }

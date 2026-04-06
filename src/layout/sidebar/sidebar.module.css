@@ -116,7 +116,7 @@ a {
     flex-direction: row;
     align-items: center;
     border-radius: 0 0 16px 16px;
-    position: relative; /* Evita que desapareça se o layout container for flex */
+    position: relative; 
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
   }
   .sidebarHeader {
