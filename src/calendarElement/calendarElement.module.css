@@ -19,10 +19,14 @@
 .calendar {
   border: none;
   border-radius: 16px;
-  font-family: inherit;
   width: 100%;
 }
 
+@media (max-width: 768px) {
+  .calendar {
+    padding: 0rem 1rem;
+  }
+}
 .periodDay {
   color: white;
   border-radius: 10px;
@@ -90,7 +94,7 @@
 }
 
 :global(.react-calendar__tile--active) {
-  background-color: #d77e9a;
+  background-color: #ffdee8;
   border-radius: 10px;
 }
 

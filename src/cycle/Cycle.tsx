@@ -27,9 +27,25 @@ function Cycle() {
     }
   };
 
-  useEffect(() => {
-    handleDataPeriod();
-  }, [user]);
+ useEffect(() => {
+  handleDataPeriod();
+
+  // Subscreve a alterações na base de dados em tempo real
+  const channel = supabase
+    .channel('schema-db-changes')
+    .on(
+      'postgres_changes',
+      { event: '*', schema: 'public', table: 'logs' }, // Ouve a tabela de logs
+      () => {
+        handleDataPeriod(); // Executa a função de busca novamente
+      }
+    )
+    .subscribe();
+
+  return () => {
+    supabase.removeChannel(channel);
+  };
+}, [user]);
 
   if (dataPeriod.length === 0) return <span>Loading...</span>; //só calcula depois de ter dados
 

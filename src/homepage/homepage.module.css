@@ -176,7 +176,8 @@
     display: grid;
     grid-template-columns: repeat(1, 1fr);
     margin-top: 30px;
-    overflow: scroll;
+    justify-content: center;
+    overflow: hidden;
   }
 }
 
@@ -189,7 +190,11 @@
   display: flex;
 }
 
-
+@media (max-width: 1200px) {
+  .containerArrowCalendar {
+    padding: 0px 32px;
+  }
+}
 
 /* Cycle  button container*/
 
@@ -225,8 +230,12 @@
 @media (max-width: 768px) {
   .openModal {
     width: 100%;
-    height: fit-content;
-    margin: 32px;
+    height: 600px;
+    max-height: 100vh;
+    bottom: 0%;
+    left: 50%;
+    transform: translate(-50%, -20%);
+    overflow: auto;
   }
 }
 .overlay {

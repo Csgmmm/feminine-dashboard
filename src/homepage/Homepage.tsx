@@ -69,7 +69,7 @@ function Homepage() {
   };
 
   useEffect(() => {
-    if (!user) return; 
+    if (!user) return;
 
     getUser(user.id).then((data) => {
       if (data) setProfile(data);
@@ -223,14 +223,15 @@ function Homepage() {
               <div className={styles.calendarContainer}>
                 <Card>
                   <div className={styles.containerArrowCalendar}>
-                  <h3>Your calendar</h3>
-                  <Button variant="link">
-                    <Link to={"/calendar"}>
-                      <span className={styles.linkIcon}>
-                        <ArrowRight />
-                      </span>
-                    </Link>
-                  </Button></div>
+                    <h3>Your calendar</h3>
+                    <Button variant="link">
+                      <Link to={"/calendar"}>
+                        <span className={styles.linkIcon}>
+                          <ArrowRight />
+                        </span>
+                      </Link>
+                    </Button>
+                  </div>
                   <CalendarElement />
                 </Card>
               </div>

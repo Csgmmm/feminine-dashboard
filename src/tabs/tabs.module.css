@@ -1,0 +1,45 @@
+.container {
+  width: 100%;
+}
+
+.tabsHeader {
+  display: flex;
+  gap: 10px;
+  padding: 16px 0px 24px;
+  justify-content: space-between;
+  width: 80%;
+}
+
+.tabsBtn {
+  text-decoration: none;
+  padding: 12px 18px;
+}
+
+.active {
+  border-bottom: 2px solid #cd6b88;
+  border-radius: 0;
+  text-decoration: none;
+}
+
+.tabsBtn:hover {
+  text-decoration: none;
+}
+
+@media (max-width: 768px) {
+  .tabsHeader {
+    display: flex;
+    justify-content: space-between;
+    gap: 0;
+    padding: 16px 0;
+    width: 100%;
+    overflow: scroll;
+    gap: 16px;
+  }
+}
+
+@media (min-width: 768px) {
+  .tabsHeader {
+    width: 100%;
+    overflow: scroll;
+  }
+}
