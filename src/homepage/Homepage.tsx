@@ -205,20 +205,6 @@ function Homepage() {
                 <Button variant="primary" onClick={() => setIsOpen(true)}>
                   Log your symptoms
                 </Button>
-
-                {/* ao abrir, vai dispultar isto: 1. é uma overlay que ocupa o ecrã todo por trás. 2. é a modal */}
-                {isOpen && (
-                  <>
-                    <div
-                      className={styles.overlay}
-                      onClick={() => setIsOpen(false)}
-                    />
-                    <Card className={styles.openModal}>
-                      <ModalLogs onClose={() => setIsOpen(false)} />
-                      {/* ao clicar no x, que é o que está no component modal, vai dar trigger e vai fechar (false) */}
-                    </Card>
-                  </>
-                )}
               </div>
               <div className={styles.calendarContainer}>
                 <Card>
@@ -236,6 +222,20 @@ function Homepage() {
                 </Card>
               </div>
             </div>
+          </>
+        )}
+
+        {/* ao abrir, vai dispultar isto: 1. é uma overlay que ocupa o ecrã todo por trás. 2. é a modal */}
+        {isOpen && (
+          <>
+            <div
+              className={styles.overlay}
+              onClick={() => setIsOpen(false)}
+            />
+            <Card className={styles.openModal}>
+              <ModalLogs onClose={() => setIsOpen(false)} />
+              {/* ao clicar no x, que é o que está no component modal, vai dar trigger e vai fechar (false) */}
+            </Card>
           </>
         )}
       </section>

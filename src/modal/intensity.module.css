@@ -60,3 +60,16 @@
   color: #cd6b88;
   font-weight: bold;
 }
+
+
+.saveButton {
+  background-color: #cd6b88;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  padding: 12px 24px;
+  font-size: 16px;
+  cursor: pointer;
+  justify-content: space-around;
+  width: 100%;
+}
