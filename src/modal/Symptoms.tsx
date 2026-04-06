@@ -41,7 +41,7 @@ const SymptomsForm = () => {
 
   const handleSubmit = async () => {
     try {
-      // 1. Vai buscar o utilizador logado
+      // 1 - vai buscar o utilizador logado
       const {
         data: { user },
         error: userError,
@@ -54,7 +54,7 @@ const SymptomsForm = () => {
 
       const today = new Date().toISOString().split("T")[0];
 
-      // 2. Prepara os logs (Sintomas)
+      // 2 - prepara os logss
       const payload = {
         user_id: user.id,
         pain: data.pain.length > 0 ? data.pain : ["None"],
@@ -65,14 +65,14 @@ const SymptomsForm = () => {
         startDatePeriod: today,
       };
 
-      // 3. Upsert nos Logs
+      // 3 - upsert nos Logs
       const { error: errorLog } = await supabase
         .from("logs")
         .upsert(payload, { onConflict: "user_id,startDatePeriod" });
 
       if (errorLog) throw errorLog;
 
-      // 4. Lógica Automática: Se houver DORES (que não sejam "None"), inicia novo ciclo
+      // 4 - se houver dores, inicia novo ciclo
       const hasPain = data.pain.length > 0 && !data.pain.includes("None");
 
       if (hasPain) {
@@ -91,10 +91,9 @@ const SymptomsForm = () => {
         alert("Symptoms saved successfully!");
       }
 
-      // 5. Forçar refresh para atualizar o gráfico no outro componente
+      // 5 - força refresh para atualizar o gráfico no outro componente
       window.location.reload();
     } catch (error) {
-      console.error("Error:", error);
       alert("Error saving data.");
     }
   };

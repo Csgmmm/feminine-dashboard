@@ -116,7 +116,7 @@ function Homepage() {
             </Button>
           </div>
         ) : (
-          /* O conteúdo abaixo só aparece se houver dados */
+          /* este conteudo só aparece se houver dados */
           <>
             <div className={styles.grid}>
               <Card>

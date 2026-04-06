@@ -56,8 +56,8 @@ function Cycle() {
   const daysOfCycle = Math.floor(
     (today.getTime() - lastPeriod.getTime()) / (1000 * 60 * 60 * 24) + 1,
   );
-  // Arredondando para baixo. Converto a data de hoje para milissegundos, subtraindo com a data do ultimo period
-  //Depois divido este valor por outro valor que é a conversão dos milissegundos para dias.
+  // arredondando para baixo e converto a data de hoje para milissegundos, subtraindo com a data do ultimo period
+  // depois divido este valor por outro valor que é a conversão dos milissegundos para dias
   // E adiciono o +1 pq é o primeiro dia do ciclo.
 
   const progress = (daysOfCycle / cycleLength) * 100; //que percentagem do ciclo ja passou, dividindo o valor do resultado ds dias do ciclo e o valor ciclo total
