@@ -174,22 +174,9 @@
 @media (max-width: 1200px) {
   .containerCycleCalendar {
     display: grid;
-    align-items: center;
-    justify-content: center;
     grid-template-columns: repeat(1, 1fr);
-  }
-}
-
-@media (min-width: 1200px) {
-  .calendarContainer {
-    width: 500px;
-    padding: 0;
-  }
-}
-
-@media (max-width: 768px) {
-  .calendarContainer {
-    padding: 24px;
+    margin-top: 30px;
+    overflow: scroll;
   }
 }
 
@@ -202,11 +189,7 @@
   display: flex;
 }
 
-@media (max-width: 768px) {
-  .containerArrowCalendar {
-    padding-left: 24px;
-  }
-}
+
 
 /* Cycle  button container*/
 

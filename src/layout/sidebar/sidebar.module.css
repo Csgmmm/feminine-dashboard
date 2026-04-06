@@ -1,7 +1,7 @@
 /* sidebar */
 
 .sidebar {
-  width: 260px;
+  width: fit-content;
   background-color: rgb(255, 255, 255);
   height: 100%;
   display: flex;
@@ -14,10 +14,10 @@
 /* Hamburguer menu */
 
 .closed {
-  width: 70px;
+  min-width: fit-content;
   height: fit-content;
   overflow: hidden;
-  padding: 0.4rem;
+  padding: 0.2rem;
 }
 
 /* Container do logo */
@@ -130,11 +130,12 @@ a {
   .open {
     width: 100%;
     height: auto;
-    padding: 0.5rem 1rem;
+    padding: 0.5rem;
   }
 
   .closed {
     width: fit-content;
+    padding: 0.5rem;
   }
 
   .sidebarHeader {
@@ -154,6 +155,7 @@ a {
     padding-left: 44px;
     width: 100%;
     justify-content: space-between;
+    padding-right: 24px;
   }
 
   .bottomNav {
