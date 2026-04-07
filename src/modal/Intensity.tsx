@@ -58,9 +58,9 @@ const Intensity = () => {
         );
 
         if (errorCycle) throw errorCycle;
-        alert("Intensity not saved");
+        alert("Intensity saved and Cycle updated!"); //Quando o user regista intensity.
       } else {
-        alert("Intensity saved successfully!");
+        alert("Intensity saved successfully!"); //Quando o user regista intensity como "none".
       }
 
       window.location.reload();

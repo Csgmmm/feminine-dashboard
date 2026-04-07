@@ -82,7 +82,7 @@
 }
 
 :global(.react-calendar__tile--now) {
-  background-color: #ffdee8;
+  background-color: #ffe3ec;
   color: #d77e9a;
   border-radius: 10px;
   text-align: center;
@@ -126,6 +126,7 @@
 
 .none {
   color: #c15887;
-  background-color: #ffe8ec;
+  background-color: transparent;
+  border: 1px solid #d77e9a;
   border-radius: 10px;
 }

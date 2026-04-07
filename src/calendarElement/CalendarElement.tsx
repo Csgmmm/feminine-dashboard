@@ -3,7 +3,7 @@ import { useAuth } from "../context/AuthContext";
 import supabase from "../api/supabaseClient";
 import styles from "./calendarElement.module.css";
 import { useEffect, useState } from "react";
-import Calendar from "react-calendar/src/Calendar.js";
+import Calendar from "react-calendar";
 
 function CalendarElement() {
   const { user } = useAuth();
@@ -23,14 +23,35 @@ function CalendarElement() {
   }, [user]);
 
   const getDayIntensity = (date: Date) => {
+    // data do calendario começa a meia noite.
+    const calendarDate = new Date(date);
+    calendarDate.setHours(0, 0, 0, 0);
+
+    // Faço um find para que me vá aos logs e me encontre o primeiro que der match:
     const log = logs.find((log) => {
-      // percorre os logs e por cada log, procura o primeiro que:
-      if (!log.startDatePeriod || !log.endDatePeriod) return false; // ignora logs sem datas
-      const start = new Date(log.startDatePeriod); // converte a data de início de um formato string para um formato Date
-      const end = new Date(log.endDatePeriod); //igual
-      return date >= start && date <= end; //retornar os dias que forem maior ou iguais que o start e menores ou iguais que o end
+      // tem data de início? Não, então ignora
+      if (!log.startDatePeriod) return false;
+
+      // 1. caso tenha, adiciona ao startDatePeriod as horas guardando milisegundos
+      const start = new Date(log.startDatePeriod);
+      start.setHours(0, 0, 0, 0);
+
+      // 2.Plano A: E se tiver um endDatePeriod, adiciona ao endDatePeriod as horas guardando milisegundos
+      if (log.endDatePeriod) {
+        const end = new Date(log.endDatePeriod);
+        end.setHours(0, 0, 0, 0);
+
+        // 3. Se der match, ele vai retornar os dias que forem maior ou iguais que o start e menores ou iguais que o end.
+        return calendarDate >= start && calendarDate <= end;
+      }
+
+      // 2. Plano B: Se chegou a esta linha é pq o log nao tem data de fim. Caso nao tivesse esta linha, não iria aparecer nada do ultimo log
+      //Ele vai buscar a hora da data do calendario e compara com a hora do startDatePeriod
+      return calendarDate.getTime() === start.getTime();
     });
-    return log?.intensity || null; //no final de tudo, se houver um log, então mostra a intensidade
+
+    // No fim de tudo, se houver um log da intensidade ele retorna, senão não retorna nada
+    return log?.intensity || null;
   };
 
   return (

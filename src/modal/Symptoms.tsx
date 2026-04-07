@@ -86,9 +86,9 @@ const SymptomsForm = () => {
         );
 
         if (errorCycle) throw errorCycle;
-        alert("Symptoms not saved");
+        alert("Symptoms saved and Cycle updated!"); //Quando o user regista pain.
       } else {
-        alert("Symptoms saved successfully!");
+        alert("Symptoms saved successfully!"); //Quando o user regista pain como "none".
       }
 
       // 5 - força refresh para atualizar o gráfico no outro componente
