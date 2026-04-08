@@ -7,7 +7,7 @@ interface ILayout {
 }
 
 const Layout = ({ children }: ILayout) => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(true);
   return (
     <section id={styles.sidebar}>
       <Sidebar isOpen={isOpen} setIsOpen={setIsOpen}/>
