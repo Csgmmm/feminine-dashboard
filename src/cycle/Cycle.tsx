@@ -27,25 +27,25 @@ function Cycle() {
     }
   };
 
- useEffect(() => {
-  handleDataPeriod();
+  useEffect(() => {
+    handleDataPeriod();
 
-  // Subscreve a alterações na base de dados em tempo real
-  const channel = supabase
-    .channel('schema-db-changes')
-    .on(
-      'postgres_changes',
-      { event: '*', schema: 'public', table: 'logs' }, // Ouve a tabela de logs
-      () => {
-        handleDataPeriod(); // Executa a função de busca novamente
-      }
-    )
-    .subscribe();
+    // Subscreve a alterações na base de dados em tempo real
+    const channel = supabase
+      .channel("schema-db-changes")
+      .on(
+        "postgres_changes",
+        { event: "*", schema: "public", table: "logs" }, // Ouve a tabela de logs
+        () => {
+          handleDataPeriod(); // Executa a função de busca novamente
+        },
+      )
+      .subscribe();
 
-  return () => {
-    supabase.removeChannel(channel);
-  };
-}, [user]);
+    return () => {
+      supabase.removeChannel(channel);
+    };
+  }, [user]);
 
   if (dataPeriod.length === 0) return <span>Loading...</span>; //só calcula depois de ter dados
 
@@ -67,7 +67,12 @@ function Cycle() {
       {error && <p>Error: {error}</p>}
       {
         <div className={styles.cycleCircle}>
-          <svg viewBox="0 0 100 100" width="430" height="430">
+          <svg
+            viewBox="0 0 100 100"
+            width="430"
+            height="430"
+            style={{ width: "100%", height: "100%" }}
+          >
             <circle
               cx="50"
               cy="50"

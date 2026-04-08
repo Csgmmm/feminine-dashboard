@@ -8,12 +8,11 @@
 }
 
 .main {
-  flex: 1;
   min-width: 0; 
-  padding: 0.35rem;
   display: flex;
   flex-direction: column;
   overflow-y: auto; 
+  width: 100%;
 }
 
 @media (max-width: 768px) {
@@ -21,13 +20,12 @@
     flex-direction: column;
     padding: 1.5rem;
     gap: 0;
-    height: auto;
+
     overflow: visible;
   }
 
   .main {
-    padding: 1.5rem;
-
+    padding-top: 1rem;
   }
 }
 

@@ -20,6 +20,11 @@
   padding: 0.2rem;
 }
 
+@media (max-width: 768px) {
+  .btnHamburguer {
+    display: none;
+  }
+}
 /* Container do logo */
 
 .sidebarHeader {
@@ -115,8 +120,8 @@ a {
     height: auto;
     flex-direction: row;
     align-items: center;
-    border-radius: 0 0 16px 16px;
-    position: relative; 
+    border-radius: 44px;
+    position: relative;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
   }
   .sidebarHeader {

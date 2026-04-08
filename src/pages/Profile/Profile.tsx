@@ -156,14 +156,16 @@ function Profile() {
             <h3 className={styles.iconTitle}>Data</h3>
           </span>
           <span className={styles.dataContainer}>
-            <Button variant="primary">Export data as PDF</Button>
+            <Button variant="primary" className={styles.button}>
+              Export data as PDF
+            </Button>
             <p className={styles.note}>
               You can take this file to a medical appointment
             </p>
           </span>
         </Card>
         <div className={styles.footer}>
-          <Button variant="secondary" onClick={logout}>
+          <Button className={styles.button} variant="secondary" onClick={logout}>
             <LogOut width={18} />
             Logout
           </Button>
