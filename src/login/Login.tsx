@@ -39,6 +39,7 @@ const Login = () => {
               <h2 className={styles.title}>Welcome to MyCicle</h2>
               <h3 className={styles.subtitle}>This is your safe place</h3>
             </div>
+
             <input
               type="email"
               placeholder="Insert your email"
