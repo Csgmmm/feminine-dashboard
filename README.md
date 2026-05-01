@@ -1,73 +1,40 @@
-# React + TypeScript + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# 🩸 Women's Health Dashboard: Desktop Transition
+Bridging the gap between mobile-first health tracking and desktop-driven data analysis.
+Inspired by industry-leading apps like Clue, this project explores the transition of intimate health tracking from a mobile-first experience into a comprehensive, high-utility desktop dashboard. The goal was to maintain the ease of mobile logging while leveraging the screen real estate of a desktop for deeper data insights.
 
-Currently, two official plugins are available:
+# 🌟 Key Features
+## 🔐 User-Specific Data Integration
+To simulate a production-ready environment, I implemented a robust Login System.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+**Dynamic Data Fetching:** The app communicates with a User API to retrieve personalized history logs.
 
-## React Compiler
+**State Persistence:** History, cycle trends, and logs are specific to the authenticated user, ensuring data integrity.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 📱 Adaptive Data Architecture
+Data density is a challenge when moving between platforms. I designed a custom responsive table structure to solve this:
 
-## Expanding the ESLint configuration
+**Desktop:** A comprehensive multi-column view for deep-diving into monthly trends.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+**Mobile:** A condensed, card-based or simplified table view that preserves readability without sacrificing information.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## 📝 Seamless Symptom Logging
+Built a specialized Modal System for symptom registration to minimize friction.
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+**In-Context Updates:** Users can log symptoms, moods, or flow intensity instantly without navigating away from their current dashboard view.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+**Optimized UX:** The modal focuses the user's attention, making daily health updates quick and effortless.
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 🛠 Tech Stack
+**Front-End:** [e.g., React / Next.js / Vite]
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+**Authentication:** [e.g., JWT / Firebase / Mock API]
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+**Styling:** [e.g., Tailwind CSS / CSS Modules]
+
+**State Management:** [e.g., Context API / Redux / TanStack Query]
+
+## 📐 Design Decisions
+**Mobile-to-Desktop Translation:** Focused on "Information Hierarchy"—using the extra desktop space for charts and logs while keeping the primary "Add Log" actions accessible via the modal.
+
+**Accessibility:** Prioritized clear typography and high-contrast indicators for health status to ensure the dashboard is inclusive and easy to navigate.
