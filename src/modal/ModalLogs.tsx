@@ -26,7 +26,7 @@ function ModalLogs({ onClose }: { onClose: () => void }) {
         {/* 3 - se activeTab for igual a X, mostra o componente Y */}
         {activeTab === "Symptoms" && (
           <div>
-            <Symptoms />
+            <Symptoms onClose={onClose} />
           </div>
         )}
 

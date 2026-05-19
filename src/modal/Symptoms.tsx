@@ -11,7 +11,7 @@ interface ISymptoms {
   hair: string;
 }
 
-const SymptomsForm = () => {
+const SymptomsForm = ({ onClose }: { onClose: () => void }) => {
   const [data, setData] = useState<ISymptoms>({
     pain: [],
     energy: "",
@@ -20,21 +20,17 @@ const SymptomsForm = () => {
     hair: "",
   });
 
-  // lidar com campos que aceitam vários valores (Mood, Pain, Skin)
   const toggleMultiSelect = (field: keyof ISymptoms, value: string) => {
     setData((prev) => {
       const currentValues = prev[field] as string[];
       const isSelected = currentValues.includes(value);
-
       const newValues = isSelected
         ? currentValues.filter((item) => item !== value)
         : [...currentValues, value];
-
       return { ...prev, [field]: newValues };
     });
   };
 
-  // lidar com campos de valor único (Energy, Hair)
   const setSingleSelect = (field: keyof ISymptoms, value: string) => {
     setData((prev) => ({ ...prev, [field]: value }));
   };
@@ -54,7 +50,7 @@ const SymptomsForm = () => {
 
       const today = new Date().toISOString().split("T")[0];
 
-      // 2 - prepara os logss
+      // 2 - prepara os logs
       const payload = {
         user_id: user.id,
         pain: data.pain.length > 0 ? data.pain : ["None"],
@@ -72,27 +68,35 @@ const SymptomsForm = () => {
 
       if (errorLog) throw errorLog;
 
-      // 4 - se houver dores, inicia novo ciclo
-      const hasPain = data.pain.length > 0 && !data.pain.includes("None");
+      // 4 - só reinicia o ciclo se o último foi há mais de 5 dias
+      const { data: lastCycle } = await supabase
+        .from("cycles")
+        .select("startDate")
+        .eq("user_id", user.id)
+        .order("startDate", { ascending: false })
+        .limit(1)
+        .single();
 
-      if (hasPain) {
-        const { error: errorCycle } = await supabase.from("cycles").upsert(
-          {
-            user_id: user.id,
-            startDate: today,
-            length: 28,
-          },
-          { onConflict: "user_id,startDate" },
-        );
+      const daysSinceLastCycle = lastCycle
+        ? Math.floor(
+            (new Date().getTime() - new Date(lastCycle.startDate).getTime()) /
+              (1000 * 60 * 60 * 24),
+          )
+        : 999;
+
+      if (daysSinceLastCycle >= 5) {
+        const { error: errorCycle } = await supabase.from("cycles").insert({
+          user_id: user.id,
+          startDate: today,
+          length: 28,
+        });
 
         if (errorCycle) throw errorCycle;
-        alert("Symptoms saved and Cycle updated!"); //Quando o user regista pain.
+        alert("Symptoms saved and Cycle updated!");
       } else {
-        alert("Symptoms saved successfully!"); //Quando o user regista pain como "none".
+        alert("Symptoms saved successfully!");
+        onClose();
       }
-
-      // 5 - força refresh para atualizar o gráfico no outro componente
-      window.location.reload();
     } catch (error) {
       alert("Error saving data.");
     }
@@ -161,7 +165,6 @@ const SymptomsForm = () => {
                 key={option}
                 type="button"
                 className={`${styles.button} ${data.skin.includes(option) ? styles.active : ""}`}
-                //Sendo que não é um array, é necessário fazer "include option"
                 onClick={() => toggleMultiSelect("skin", option)}
               >
                 {option}
@@ -169,6 +172,7 @@ const SymptomsForm = () => {
             ))}
           </div>
         </div>
+
         {/* Hair */}
         <div className={styles.section}>
           <h3 className={styles.label}>Hair</h3>
